@@ -24,7 +24,7 @@ styles =
             , backgroundColor <| hex mdBgColor
             , Css.color <| hex dBgColor
             , fontFamilies [ "JetBrains Mono, monospace", "Open Sans", "Arial", .value sansSerif ]
-            , fontSize <| px 18
+            , fontSize <| Css.em 1.0
             , lineHeight <| Css.em 1.4
             ]
         , a
