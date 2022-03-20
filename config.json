@@ -1,0 +1,23 @@
+{
+    "siteTitle": "Huy's blog",
+    "outputDir": "_site",
+    "copy": {
+        "/posts": "/"
+    },
+    "feed": {
+        "type": "rss",
+        "title": "Huy's blog",
+        "description": "Huy's posts",
+        "id": "https://example.com",
+        "link": "https://example.com/posts",
+        "image": "https://i.imgur.com/b8swWoP.png",
+        "copyright": "Copyright: Huy Phung",
+        "language": "en",
+        "generator": "Elmstatic",
+        "author": {
+          "name": "Huy Phung",
+          "link": "https://example.com/about"
+        }
+    },
+    "tags": ["other", "software"]
+}
