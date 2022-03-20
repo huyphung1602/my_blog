@@ -5523,6 +5523,16 @@ var $author$project$Elmstatic$layout = F2(
 			});
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $author$project$Page$footer = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('footer')
+		]),
+	_List_fromArray(
+		[
+			$elm$html$Html$text('A journey of a thousand miles begins with a single step')
+		]));
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
@@ -5595,7 +5605,16 @@ var $author$project$Page$header = _List_fromArray(
 				$elm$html$Html$Attributes$class('header-logo')
 			]),
 		_List_fromArray(
-			[$author$project$Page$svgLogo])),
+			[
+				A2(
+				$elm$html$Html$a,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$href('/posts')
+					]),
+				_List_fromArray(
+					[$author$project$Page$svgLogo]))
+			])),
 		A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -5969,6 +5988,7 @@ var $rtfeldman$elm_css$Css$fontFamilies = A2(
 	$rtfeldman$elm_css$Css$prop1('font-family'),
 	$rtfeldman$elm_css$Css$stringsToValue);
 var $rtfeldman$elm_css$Css$fontSize = $rtfeldman$elm_css$Css$prop1('font-size');
+var $rtfeldman$elm_css$Css$fontStyle = $rtfeldman$elm_css$Css$prop1('font-style');
 var $rtfeldman$elm_css$Css$fontWeight = function (_v0) {
 	var value = _v0.a5;
 	return A2($rtfeldman$elm_css$Css$property, 'font-weight', value);
@@ -8191,6 +8211,7 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 		a5: $elm$core$String$fromInt(val)
 	};
 };
+var $rtfeldman$elm_css$Css$italic = {_: 0, a5: 'italic'};
 var $author$project$Styles$ldBgColor = 'FFCE45';
 var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
@@ -8787,6 +8808,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$toUnstyled = function (vdom) {
 };
 var $rtfeldman$elm_css$Html$Styled$toUnstyled = $rtfeldman$elm_css$VirtualDom$Styled$toUnstyled;
 var $rtfeldman$elm_css$Css$Global$ul = $rtfeldman$elm_css$Css$Global$typeSelector('ul');
+var $rtfeldman$elm_css$Css$underline = {ai: 0, a5: 'underline'};
 var $rtfeldman$elm_css$Css$verticalAlign = function (fn) {
 	return A3(
 		$rtfeldman$elm_css$Css$Internal$getOverloadedProperty,
@@ -8859,7 +8881,7 @@ var $author$project$Styles$styles = function () {
 					_List_fromArray(
 						[
 							$rtfeldman$elm_css$Css$color(
-							$rtfeldman$elm_css$Css$hex($author$project$Styles$lBgColor)),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$none)
 						])),
 					$rtfeldman$elm_css$Css$Global$code(codeStyle),
@@ -9043,7 +9065,27 @@ var $author$project$Styles$styles = function () {
 					_List_fromArray(
 						[
 							$rtfeldman$elm_css$Css$maxWidth(
-							$rtfeldman$elm_css$Css$vw(100))
+							$rtfeldman$elm_css$Css$vw(100)),
+							$rtfeldman$elm_css$Css$Global$descendants(
+							_List_fromArray(
+								[
+									$rtfeldman$elm_css$Css$Global$p(
+									_List_fromArray(
+										[
+											$rtfeldman$elm_css$Css$Global$descendants(
+											_List_fromArray(
+												[
+													$rtfeldman$elm_css$Css$Global$a(
+													_List_fromArray(
+														[
+															$rtfeldman$elm_css$Css$fontWeight(
+															$rtfeldman$elm_css$Css$int(600)),
+															$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$underline),
+															$rtfeldman$elm_css$Css$fontStyle($rtfeldman$elm_css$Css$italic)
+														]))
+												]))
+										]))
+								]))
 						])),
 					A2(
 					$rtfeldman$elm_css$Css$Global$class,
@@ -9083,7 +9125,7 @@ var $author$project$Styles$styles = function () {
 								[
 									$rtfeldman$elm_css$Css$lineHeight(
 									$rtfeldman$elm_css$Css$px(80)),
-									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$right),
+									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
 									$rtfeldman$elm_css$Css$Global$descendants(
 									_List_fromArray(
 										[
@@ -9182,6 +9224,7 @@ var $author$project$Page$layout = F2(
 									]))
 							]),
 						contentItems)),
+					$author$project$Page$footer,
 					$author$project$Elmstatic$stylesheet('/styles.css'),
 					$author$project$Styles$styles
 				]));

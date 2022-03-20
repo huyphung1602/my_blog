@@ -2,4 +2,4 @@
 title: "Contact"
 ---
 
-Drop me a line at [me@example.com](mailto:me@example.com).
+Currently, I cannot share my contact. Please come back later I will have a quiz for you.

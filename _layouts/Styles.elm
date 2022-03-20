@@ -1,4 +1,4 @@
-module Styles exposing (styles, lBgColor, mdBgColor, ldBgColor, dBgColor)
+module Styles exposing (styles, lBgColor, mdBgColor, dBgColor)
 
 import Css exposing (..)
 import Css.Global exposing (..)
@@ -28,7 +28,7 @@ styles =
             , lineHeight <| Css.em 1.4
             ]
         , a
-            [ Css.color <| hex lBgColor
+            [ Css.color <| hex dBgColor
             , textDecoration none
             ]
         , code codeStyle
@@ -77,7 +77,19 @@ styles =
                 ]
             , wideScreen [ marginTop <| px 0, padding <| px 0, textAlign right ]
             ]
-        , class "content" [ Css.maxWidth <| vw 100 ]
+        , class "content"
+            [ Css.maxWidth <| vw 100
+            , descendants
+                [ p [ descendants 
+                        [
+                            a [ fontWeight <| (int 600)
+                            , textDecoration underline
+                            , fontStyle italic
+                            ]
+                        ]
+                    ]
+                ]
+            ]
         , class "footer"
             [ textAlign center
             , borderTop3 (px 2) solid (hex dBgColor)
@@ -89,7 +101,7 @@ styles =
                 ]
             , wideScreen
                 [ lineHeight <| px 80
-                , textAlign right
+                , textAlign center
                 , descendants
                     [ class "link"
                         [ display inlineBlock

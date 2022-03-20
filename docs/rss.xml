@@ -4,55 +4,21 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sun, 20 Mar 2022 16:39:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Mar 2022 18:42:54 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
         <copyright>Copyright: Huy Phung</copyright>
         <item>
-            <title><![CDATA[I'm using Elmstatic for my blog]]></title>
-            <link>/2019-01-01-using-elmstatic</link>
-            <guid>/2019-01-01-using-elmstatic</guid>
-            <pubDate>Tue, 01 Jan 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[Elmstatic is a static blog generator
+            <title><![CDATA[2022.03.21 - The Pragmatic Programmer Characteristic]]></title>
+            <link>/2022-03-21-the-pragmatic-programmer-characteristic</link>
+            <guid>/2022-03-21-the-pragmatic-programmer-characteristic</guid>
+            <pubDate>Mon, 21 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[I spent 5 years of my life writing Ruby codes and some other frontend codes as well. However, other engineers always could point out the many bad things in my codes (meaningless names, bad structures, etc). One day, a good friend of mine told me to read a book named "The Pragmatic Programmer". The book gives me a compass for my daily work.
 
-It allows you to write pages in Elm, and blog posts in Markdown.
+What makes a pragmatic programmer?
 
-This is an example of a post
-
-Code is highlighted using Highlight.js:
-
-view : Header v m -> List (Element PageStyles v m) -> Html.Html m
-view header contentElems =
-    viewport stylesheet <|
-        column Main
-            [ center, width (percent 100) ]
-            [ header
-            , column Main
-                [ width <| px 800, spacingXY 0 10, alignLeft ]
-                contentElems
-  ...]]></description>
-        </item>
-        <item>
-            <title><![CDATA[Another post]]></title>
-            <link>/2019-01-02-another-post</link>
-            <guid>/2019-01-02-another-post</guid>
-            <pubDate>Wed, 02 Jan 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[This is another example of a blog post.
-
-Heading 1
-
-Heading 2
-
-Heading 3
-
-Heading 4
-
-Heading 5
-
-Heading 6
-
-Bold italic underline inline code....]]></description>
+Early adopter: As a Software engineer, you must have an instinct for technologies and techniques. You keep learning expli...]]></description>
         </item>
     </channel>
 </rss>
