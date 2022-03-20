@@ -5513,129 +5513,19 @@ var $author$project$Elmstatic$layout = F2(
 			});
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
-var $author$project$Page$githubIcon = function () {
-	var pathNode = A3(
-		$elm$html$Html$node,
-		'path',
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$attribute, 'fill', '#082032'),
-				A2($elm$html$Html$Attributes$attribute, 'd', '\nM7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z\n            ')
-			]),
-		_List_Nil);
-	return A3(
-		$elm$html$Html$node,
-		'svg',
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$attribute, 'width', '16'),
-				A2($elm$html$Html$Attributes$attribute, 'height', '16'),
-				A2($elm$html$Html$Attributes$attribute, 'viewBox', '0 0 16 16')
-			]),
-		_List_fromArray(
-			[pathNode]));
-}();
-var $author$project$Page$twitterIcon = function () {
-	var pathNode = A3(
-		$elm$html$Html$node,
-		'path',
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$attribute, 'fill', '#082032'),
-				A2($elm$html$Html$Attributes$attribute, 'd', '\nM15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809 c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z\n            ')
-			]),
-		_List_Nil);
-	return A3(
-		$elm$html$Html$node,
-		'svg',
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$attribute, 'width', '16'),
-				A2($elm$html$Html$Attributes$attribute, 'height', '16'),
-				A2($elm$html$Html$Attributes$attribute, 'viewBox', '0 0 16 16')
-			]),
-		_List_fromArray(
-			[pathNode]));
-}();
-var $author$project$Page$footer = A2(
-	$elm$html$Html$div,
-	_List_fromArray(
-		[
-			$elm$html$Html$Attributes$class('footer')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$class('link')
-				]),
-			_List_fromArray(
-				[
-					$author$project$Page$githubIcon,
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://github.com')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Author\'s GitHub')
-						]))
-				])),
-			A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$class('link')
-				]),
-			_List_fromArray(
-				[
-					$author$project$Page$twitterIcon,
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://twitter.com')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Author\'s Twitter')
-						]))
-				])),
-			A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$class('link')
-				]),
-			_List_fromArray(
-				[
-					A2(
-					$elm$html$Html$a,
-					_List_fromArray(
-						[
-							$elm$html$Html$Attributes$href('https://www.npmjs.com/package/elmstatic')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Created with Elmstatic')
-						]))
-				]))
-		]));
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
 var $elm$svg$Svg$circle = $elm$svg$Svg$trustedNode('circle');
 var $elm$svg$Svg$Attributes$cx = _VirtualDom_attribute('cx');
 var $elm$svg$Svg$Attributes$cy = _VirtualDom_attribute('cy');
+var $author$project$Styles$dBgColor = '1A374D';
 var $elm$svg$Svg$Attributes$dominantBaseline = _VirtualDom_attribute('dominant-baseline');
 var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
 var $elm$svg$Svg$Attributes$fontFamily = _VirtualDom_attribute('font-family');
 var $elm$svg$Svg$Attributes$fontWeight = _VirtualDom_attribute('font-weight');
 var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
+var $author$project$Styles$lBgColor = 'F7F6E7';
 var $elm$svg$Svg$Attributes$r = _VirtualDom_attribute('r');
 var $elm$svg$Svg$Attributes$stroke = _VirtualDom_attribute('stroke');
 var $elm$svg$Svg$Attributes$strokeWidth = _VirtualDom_attribute('stroke-width');
@@ -5664,7 +5554,7 @@ var $author$project$Page$svgLogo = A2(
 					$elm$svg$Svg$Attributes$cx('45'),
 					$elm$svg$Svg$Attributes$cy('45'),
 					$elm$svg$Svg$Attributes$r('30'),
-					$elm$svg$Svg$Attributes$fill('#082032')
+					$elm$svg$Svg$Attributes$fill('#' + $author$project$Styles$dBgColor)
 				]),
 			_List_Nil),
 			A2(
@@ -5675,7 +5565,7 @@ var $author$project$Page$svgLogo = A2(
 					$elm$svg$Svg$Attributes$y('50%'),
 					$elm$svg$Svg$Attributes$dominantBaseline('middle'),
 					$elm$svg$Svg$Attributes$textAnchor('middle'),
-					$elm$svg$Svg$Attributes$stroke('white'),
+					$elm$svg$Svg$Attributes$stroke('#' + $author$project$Styles$lBgColor),
 					$elm$svg$Svg$Attributes$strokeWidth('2'),
 					$elm$svg$Svg$Attributes$fontFamily('JetBrains Mono, monospace'),
 					$elm$svg$Svg$Attributes$fontWeight('100')
@@ -6069,6 +5959,10 @@ var $rtfeldman$elm_css$Css$fontFamilies = A2(
 	$rtfeldman$elm_css$Css$prop1('font-family'),
 	$rtfeldman$elm_css$Css$stringsToValue);
 var $rtfeldman$elm_css$Css$fontSize = $rtfeldman$elm_css$Css$prop1('font-size');
+var $rtfeldman$elm_css$Css$fontWeight = function (_v0) {
+	var value = _v0.a5;
+	return A2($rtfeldman$elm_css$Css$property, 'font-weight', value);
+};
 var $elm$core$List$any = F2(
 	function (isOkay, list) {
 		any:
@@ -8272,6 +8166,22 @@ var $rtfeldman$elm_css$Css$Preprocess$mapProperties = F2(
 	});
 var $rtfeldman$elm_css$Css$important = $rtfeldman$elm_css$Css$Preprocess$mapProperties($rtfeldman$elm_css$Css$makeImportant);
 var $rtfeldman$elm_css$Css$inlineBlock = {f: 0, a5: 'inline-block'};
+var $rtfeldman$elm_css$Css$UnitlessInteger = 0;
+var $rtfeldman$elm_css$Css$int = function (val) {
+	return {
+		D: 0,
+		aI: 0,
+		N: 0,
+		x: 0,
+		aw: 0,
+		aK: 0,
+		G: val,
+		am: '',
+		aC: 0,
+		a5: $elm$core$String$fromInt(val)
+	};
+};
+var $author$project$Styles$ldBgColor = 'FFCE45';
 var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
 var $rtfeldman$elm_css$Css$lineHeight = $rtfeldman$elm_css$Css$prop1('line-height');
@@ -8281,6 +8191,7 @@ var $rtfeldman$elm_css$Css$marginBottom = $rtfeldman$elm_css$Css$prop1('margin-b
 var $rtfeldman$elm_css$Css$marginRight = $rtfeldman$elm_css$Css$prop1('margin-right');
 var $rtfeldman$elm_css$Css$marginTop = $rtfeldman$elm_css$Css$prop1('margin-top');
 var $rtfeldman$elm_css$Css$maxWidth = $rtfeldman$elm_css$Css$prop1('max-width');
+var $author$project$Styles$mdBgColor = 'E7E6E1';
 var $rtfeldman$elm_css$Css$Media$feature = F2(
 	function (key, _v0) {
 		var value = _v0.a5;
@@ -8916,9 +8827,9 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$margin(
 							$rtfeldman$elm_css$Css$px(0)),
 							$rtfeldman$elm_css$Css$backgroundColor(
-							$rtfeldman$elm_css$Css$hex('ffffff')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$mdBgColor)),
 							$rtfeldman$elm_css$Css$color(
-							$rtfeldman$elm_css$Css$hex('363636')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							$rtfeldman$elm_css$Css$fontFamilies(
 							_List_fromArray(
 								[
@@ -8938,7 +8849,7 @@ var $author$project$Styles$styles = function () {
 					_List_fromArray(
 						[
 							$rtfeldman$elm_css$Css$color(
-							$rtfeldman$elm_css$Css$hex('348aa7')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$lBgColor)),
 							$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$none)
 						])),
 					$rtfeldman$elm_css$Css$Global$code(codeStyle),
@@ -8973,7 +8884,9 @@ var $author$project$Styles$styles = function () {
 								}($rtfeldman$elm_css$Css$sansSerif)
 								])),
 							$rtfeldman$elm_css$Css$lineHeight(
-							$rtfeldman$elm_css$Css$em(1.1))
+							$rtfeldman$elm_css$Css$em(1.1)),
+							$rtfeldman$elm_css$Css$color(
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor))
 						])),
 					$rtfeldman$elm_css$Css$Global$h1(
 					_List_fromArray(
@@ -9042,7 +8955,7 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$px(6)),
 							$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
 							$rtfeldman$elm_css$Css$backgroundColor(
-							$rtfeldman$elm_css$Css$hex('F0A500')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$ldBgColor)),
 							wideScreen(
 							_List_fromArray(
 								[
@@ -9051,7 +8964,7 @@ var $author$project$Styles$styles = function () {
 									$rtfeldman$elm_css$Css$borderBottom3,
 									$rtfeldman$elm_css$Css$px(2),
 									$rtfeldman$elm_css$Css$solid,
-									$rtfeldman$elm_css$Css$hex('334756'))
+									$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor))
 								]))
 						])),
 					A2(
@@ -9064,9 +8977,9 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$borderBottom3,
 							$rtfeldman$elm_css$Css$px(2),
 							$rtfeldman$elm_css$Css$solid,
-							$rtfeldman$elm_css$Css$hex('334756')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							$rtfeldman$elm_css$Css$backgroundColor(
-							$rtfeldman$elm_css$Css$hex('F0A500')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$ldBgColor)),
 							$rtfeldman$elm_css$Css$padding(
 							$rtfeldman$elm_css$Css$px(10)),
 							$rtfeldman$elm_css$Css$marginTop(
@@ -9093,15 +9006,15 @@ var $author$project$Styles$styles = function () {
 										[
 											$rtfeldman$elm_css$Css$display($rtfeldman$elm_css$Css$inlineBlock),
 											$rtfeldman$elm_css$Css$marginRight(
-											$rtfeldman$elm_css$Css$px(20)),
-											$rtfeldman$elm_css$Css$color(
-											$rtfeldman$elm_css$Css$hex('082032'))
+											$rtfeldman$elm_css$Css$px(20))
 										])),
 									$rtfeldman$elm_css$Css$Global$a(
 									_List_fromArray(
 										[
 											$rtfeldman$elm_css$Css$color(
-											$rtfeldman$elm_css$Css$hex('082032'))
+											$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
+											$rtfeldman$elm_css$Css$fontWeight(
+											$rtfeldman$elm_css$Css$int(600))
 										]))
 								])),
 							wideScreen(
@@ -9132,11 +9045,11 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$borderTop3,
 							$rtfeldman$elm_css$Css$px(2),
 							$rtfeldman$elm_css$Css$solid,
-							$rtfeldman$elm_css$Css$hex('334756')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							$rtfeldman$elm_css$Css$backgroundColor(
-							$rtfeldman$elm_css$Css$hex('F0A500')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$ldBgColor)),
 							$rtfeldman$elm_css$Css$color(
-							$rtfeldman$elm_css$Css$hex('082032')),
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							$rtfeldman$elm_css$Css$Global$descendants(
 							_List_fromArray(
 								[
@@ -9144,7 +9057,7 @@ var $author$project$Styles$styles = function () {
 									_List_fromArray(
 										[
 											$rtfeldman$elm_css$Css$color(
-											$rtfeldman$elm_css$Css$hex('082032')),
+											$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 											$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$none)
 										])),
 									$rtfeldman$elm_css$Css$Global$svg(
@@ -9205,11 +9118,13 @@ var $author$project$Styles$styles = function () {
 											$rtfeldman$elm_css$Css$border3,
 											$rtfeldman$elm_css$Css$px(1),
 											$rtfeldman$elm_css$Css$solid,
-											$rtfeldman$elm_css$Css$hex('e0e0e0')),
+											$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 											$rtfeldman$elm_css$Css$borderRadius(
 											$rtfeldman$elm_css$Css$px(3)),
 											$rtfeldman$elm_css$Css$backgroundColor(
-											$rtfeldman$elm_css$Css$hex('f2fae8')),
+											$rtfeldman$elm_css$Css$hex($author$project$Styles$lBgColor)),
+											$rtfeldman$elm_css$Css$color(
+											$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 											$rtfeldman$elm_css$Css$paddingLeft(
 											$rtfeldman$elm_css$Css$px(5)),
 											$rtfeldman$elm_css$Css$paddingRight(
@@ -9257,7 +9172,6 @@ var $author$project$Page$layout = F2(
 									]))
 							]),
 						contentItems)),
-					$author$project$Page$footer,
 					$author$project$Elmstatic$stylesheet('/styles.css'),
 					$author$project$Styles$styles
 				]));

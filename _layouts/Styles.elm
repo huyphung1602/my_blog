@@ -1,4 +1,4 @@
-module Styles exposing (styles)
+module Styles exposing (styles, lBgColor, mdBgColor, ldBgColor, dBgColor)
 
 import Css exposing (..)
 import Css.Global exposing (..)
@@ -21,14 +21,14 @@ styles =
         [ body
             [ padding <| px 0
             , margin <| px 0
-            , backgroundColor <| hex "ffffff"
-            , Css.color <| hex "363636"
+            , backgroundColor <| hex mdBgColor
+            , Css.color <| hex dBgColor
             , fontFamilies [ "JetBrains Mono, monospace", "Open Sans", "Arial", .value sansSerif ]
             , fontSize <| px 18
             , lineHeight <| Css.em 1.4
             ]
         , a
-            [ Css.color <| hex "348aa7"
+            [ Css.color <| hex lBgColor
             , textDecoration none
             ]
         , code codeStyle
@@ -40,6 +40,7 @@ styles =
             -- [ fontFamilies [ "Proza Libre", "Helvetica", .value sansSerif ]
             [ fontFamilies [ "JetBrains Mono, monospace", "Proza Libre", "Helvetica", .value sansSerif ]
             , lineHeight <| Css.em 1.1
+            , Css.color <| hex dBgColor
             ]
         , h1 [ fontSize <| Css.em 2.66667, marginBottom <| rem 2.0202 ]
         , h2 [ fontSize <| Css.em 2.0, marginBottom <| rem 1.61616 ]
@@ -51,13 +52,13 @@ styles =
         , class "header-logo"
             [ paddingTop <| px 6
             , textAlign center
-            , backgroundColor <| hex "F0A500"
-            , wideScreen [ textAlign left, borderBottom3 (px 2) solid (hex "334756") ]
+            , backgroundColor <| hex ldBgColor
+            , wideScreen [ textAlign left, borderBottom3 (px 2) solid (hex dBgColor) ]
             ]
         , class "navigation"
             [ textAlign center
-            , borderBottom3 (px 2) solid (hex "334756")
-            , backgroundColor <| hex "F0A500"
+            , borderBottom3 (px 2) solid (hex dBgColor)
+            , backgroundColor <| hex ldBgColor
             , padding <| px 10
             , marginTop <| px -20
             , descendants
@@ -69,21 +70,21 @@ styles =
                 , li
                     [ display inlineBlock
                     , marginRight <| px 20
-                    , Css.color <| hex "082032"
                     ]
-                , a [ Css.color <| hex "082032"
-                        ]
+                , a [ Css.color <| hex dBgColor
+                    , fontWeight <| (int 600)
+                    ]
                 ]
             , wideScreen [ marginTop <| px 0, padding <| px 0, textAlign right ]
             ]
         , class "content" [ Css.maxWidth <| vw 100 ]
         , class "footer"
             [ textAlign center
-            , borderTop3 (px 2) solid (hex "334756")
-            , backgroundColor <| hex "F0A500"
-            , Css.color <| hex "082032"
+            , borderTop3 (px 2) solid (hex dBgColor)
+            , backgroundColor <| hex ldBgColor
+            , Css.color <| hex dBgColor
             , descendants
-                [ a [ Css.color <| hex "082032", textDecoration none ]
+                [ a [ Css.color <| hex dBgColor, textDecoration none ]
                 , svg [ paddingRight <| px 5, verticalAlign baseline ]
                 ]
             , wideScreen
@@ -106,9 +107,10 @@ styles =
                     , marginRight <| px 5
                     ]
                 , a
-                    [ border3 (px 1) solid (hex "e0e0e0")
+                    [ border3 (px 1) solid (hex dBgColor)
                     , borderRadius <| px 3
-                    , backgroundColor <| hex "f2fae8"
+                    , backgroundColor <| hex lBgColor
+                    , Css.color <| hex dBgColor
                     , paddingLeft <| px 5
                     , paddingRight <| px 5
                     ]
@@ -116,3 +118,15 @@ styles =
             ]
         ]
         |> Html.Styled.toUnstyled
+
+lBgColor : String
+lBgColor = "F7F6E7"
+
+mdBgColor : String
+mdBgColor = "E7E6E1"
+
+ldBgColor : String
+ldBgColor = "FFCE45"
+
+dBgColor : String
+dBgColor = "1A374D"
