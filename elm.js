@@ -5535,66 +5535,6 @@ var $author$project$Page$footer = A2(
 		]));
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$li = _VirtualDom_node('li');
-var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
-var $elm$svg$Svg$circle = $elm$svg$Svg$trustedNode('circle');
-var $elm$svg$Svg$Attributes$cx = _VirtualDom_attribute('cx');
-var $elm$svg$Svg$Attributes$cy = _VirtualDom_attribute('cy');
-var $author$project$Styles$dBgColor = '1A374D';
-var $elm$svg$Svg$Attributes$dominantBaseline = _VirtualDom_attribute('dominant-baseline');
-var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
-var $elm$svg$Svg$Attributes$fontFamily = _VirtualDom_attribute('font-family');
-var $elm$svg$Svg$Attributes$fontWeight = _VirtualDom_attribute('font-weight');
-var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
-var $author$project$Styles$lBgColor = 'F7F6E7';
-var $elm$svg$Svg$Attributes$r = _VirtualDom_attribute('r');
-var $elm$svg$Svg$Attributes$stroke = _VirtualDom_attribute('stroke');
-var $elm$svg$Svg$Attributes$strokeWidth = _VirtualDom_attribute('stroke-width');
-var $elm$svg$Svg$svg = $elm$svg$Svg$trustedNode('svg');
-var $elm$svg$Svg$text = $elm$virtual_dom$VirtualDom$text;
-var $elm$svg$Svg$Attributes$textAnchor = _VirtualDom_attribute('text-anchor');
-var $elm$svg$Svg$text_ = $elm$svg$Svg$trustedNode('text');
-var $elm$svg$Svg$Attributes$viewBox = _VirtualDom_attribute('viewBox');
-var $elm$svg$Svg$Attributes$width = _VirtualDom_attribute('width');
-var $elm$svg$Svg$Attributes$x = _VirtualDom_attribute('x');
-var $elm$svg$Svg$Attributes$y = _VirtualDom_attribute('y');
-var $author$project$Page$svgLogo = A2(
-	$elm$svg$Svg$svg,
-	_List_fromArray(
-		[
-			$elm$svg$Svg$Attributes$viewBox('0 0 90 90'),
-			$elm$svg$Svg$Attributes$width('90'),
-			$elm$svg$Svg$Attributes$height('90')
-		]),
-	_List_fromArray(
-		[
-			A2(
-			$elm$svg$Svg$circle,
-			_List_fromArray(
-				[
-					$elm$svg$Svg$Attributes$cx('45'),
-					$elm$svg$Svg$Attributes$cy('45'),
-					$elm$svg$Svg$Attributes$r('30'),
-					$elm$svg$Svg$Attributes$fill('#' + $author$project$Styles$dBgColor)
-				]),
-			_List_Nil),
-			A2(
-			$elm$svg$Svg$text_,
-			_List_fromArray(
-				[
-					$elm$svg$Svg$Attributes$x('50%'),
-					$elm$svg$Svg$Attributes$y('50%'),
-					$elm$svg$Svg$Attributes$dominantBaseline('middle'),
-					$elm$svg$Svg$Attributes$textAnchor('middle'),
-					$elm$svg$Svg$Attributes$stroke('#' + $author$project$Styles$lBgColor),
-					$elm$svg$Svg$Attributes$strokeWidth('2'),
-					$elm$svg$Svg$Attributes$fontFamily('JetBrains Mono, monospace'),
-					$elm$svg$Svg$Attributes$fontWeight('100')
-				]),
-			_List_fromArray(
-				[
-					$elm$svg$Svg$text('huy')
-				]))
-		]));
 var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $author$project$Page$header = _List_fromArray(
 	[
@@ -5604,17 +5544,7 @@ var $author$project$Page$header = _List_fromArray(
 			[
 				$elm$html$Html$Attributes$class('header-logo')
 			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$a,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$href('/posts')
-					]),
-				_List_fromArray(
-					[$author$project$Page$svgLogo]))
-			])),
+		_List_Nil),
 		A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -5771,6 +5701,7 @@ var $rtfeldman$elm_css$Css$Global$code = $rtfeldman$elm_css$Css$Global$typeSelec
 var $rtfeldman$elm_css$Css$color = function (c) {
 	return A2($rtfeldman$elm_css$Css$property, 'color', c.a5);
 };
+var $author$project$Styles$dBgColor = '1A374D';
 var $rtfeldman$elm_css$Css$Structure$Descendant = 3;
 var $rtfeldman$elm_css$Css$Preprocess$NestSnippet = F2(
 	function (a, b) {
@@ -8212,6 +8143,7 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 	};
 };
 var $rtfeldman$elm_css$Css$italic = {_: 0, a5: 'italic'};
+var $author$project$Styles$lBgColor = 'F7F6E7';
 var $author$project$Styles$ldBgColor = 'FFCE45';
 var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
@@ -8833,7 +8765,7 @@ var $author$project$Styles$styles = function () {
 				_List_fromArray(
 					[
 						$rtfeldman$elm_css$Css$Media$minWidth(
-						$rtfeldman$elm_css$Css$px(600))
+						$rtfeldman$elm_css$Css$px(768))
 					]))
 			]));
 	var codeStyle = _List_fromArray(

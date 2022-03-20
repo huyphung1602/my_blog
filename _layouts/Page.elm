@@ -7,6 +7,7 @@ import Markdown
 import Styles exposing (..)
 import Svg exposing (svg, circle, text_)
 import Svg.Attributes exposing (..)
+import Css exposing (alignSelf)
 
 -- githubIcon : Html Never
 -- githubIcon =
@@ -77,9 +78,10 @@ svgLogo =
 header : List (Html Never)
 header =
     [ div [ Attr.class "header-logo" ]
-        [ a [ href "/posts" ]
-            [ svgLogo ]
-        ]
+        -- [ a [ href "/posts" ]
+        --     [ svgLogo ]
+        -- ]
+        []
     , div [ Attr.class "navigation" ]
         [ ul []
             [ li []
