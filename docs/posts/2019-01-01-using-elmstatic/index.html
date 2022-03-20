@@ -1,4 +1,21 @@
-<!doctype html><html><head><title>All posts | Huy's blog</title><meta charset="utf-8"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" stroke="#F7F6E7" stroke-width="2" font-family="JetBrains Mono, monospace" font-weight="100">huy</text></svg></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>All posts</h1><div><a href="/posts/2019-01-02-another-post"><h2>Another post</h2></a><div class="post-metadata"><span>2019-01-02</span><span>•</span><a href="/tags/other">other</a></div></div><div><a href="/posts/2019-01-01-using-elmstatic"><h2>I'm using Elmstatic for my blog</h2></a><div class="post-metadata"><span>2019-01-01</span><span>•</span><a href="/tags/software">software</a><a href="/tags/other">other</a></div></div></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+<!doctype html><html><head><title>I'm using Elmstatic for my blog | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" stroke="#F7F6E7" stroke-width="2" font-family="JetBrains Mono, monospace" font-weight="100">huy</text></svg></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>I'm using Elmstatic for my blog</h1><div class="post-metadata"><span>2019-01-01</span><span>•</span><a href="/tags/software">software</a><a href="/tags/other">other</a></div><div attr.class="markdown"><h2 id="elmstatic-is-a-static-blog-generator">Elmstatic is a static blog generator</h2>
+<p>It allows you to write pages in Elm, and blog posts in Markdown. </p>
+<h3 id="this-is-an-example-of-a-post">This is an example of a post</h3>
+<p>Code is highlighted using <a href="http://highlightjs.org">Highlight.js</a>: </p>
+<pre><code>view : Header v m -&gt; List (Element PageStyles v m) -&gt; Html.Html m
+view header contentElems =
+    viewport stylesheet &lt;|
+        column Main
+            [ center, width (percent 100) ]
+            [ header
+            , column Main
+                [ width &lt;| px 800, spacingXY 0 10, alignLeft ]
+                contentElems
+            , footer
+            ]
+</code></pre><h3 id="tags">Tags</h3>
+<p>The default set of tags can be changed as needed in <code>config.json</code>. </p>
+</div></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
     padding:0px;
     margin:0px;
     background-color:#E7E6E1;

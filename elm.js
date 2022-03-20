@@ -5427,6 +5427,16 @@ var $author$project$Elmstatic$htmlTemplate = F2(
 								])),
 							A3(
 							$elm$html$Html$node,
+							'link',
+							_List_fromArray(
+								[
+									A2($elm$html$Html$Attributes$attribute, 'href', 'https://i.imgur.com/TvSmXhH.png'),
+									A2($elm$html$Html$Attributes$attribute, 'rel', 'icon'),
+									A2($elm$html$Html$Attributes$attribute, 'type', 'image/x-icon')
+								]),
+							_List_Nil),
+							A3(
+							$elm$html$Html$node,
 							'meta',
 							_List_fromArray(
 								[

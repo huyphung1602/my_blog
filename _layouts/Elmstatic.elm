@@ -139,6 +139,7 @@ htmlTemplate title contentNodes =
         [ node "head"
             []
             [ node "title" [] [ text title ]
+            , node "link" [ attribute "href" "https://i.imgur.com/TvSmXhH.png", attribute "rel" "icon", attribute "type" "image/x-icon" ] []
             , node "meta" [ attribute "charset" "utf-8" ] []
             , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"
             , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"

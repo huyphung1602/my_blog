@@ -1,6 +1,6 @@
 {
     "siteTitle": "Huy's blog",
-    "outputDir": "_site",
+    "outputDir": "docs",
     "copy": {
         "/posts": "/"
     },
@@ -8,15 +8,15 @@
         "type": "rss",
         "title": "Huy's blog",
         "description": "Huy's posts",
-        "id": "https://example.com",
-        "link": "https://example.com/posts",
-        "image": "https://i.imgur.com/b8swWoP.png",
+        "id": "",
+        "link": "",
+        "image": "",
         "copyright": "Copyright: Huy Phung",
         "language": "en",
         "generator": "Elmstatic",
         "author": {
           "name": "Huy Phung",
-          "link": "https://example.com/about"
+          "link": ""
         }
     },
     "tags": ["other", "software"]
