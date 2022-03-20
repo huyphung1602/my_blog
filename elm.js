@@ -5618,7 +5618,7 @@ var $author$project$Page$header = _List_fromArray(
 								$elm$html$Html$a,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$href('/my_blog/posts')
+										$elm$html$Html$Attributes$href('/posts')
 									]),
 								_List_fromArray(
 									[
@@ -5634,7 +5634,7 @@ var $author$project$Page$header = _List_fromArray(
 								$elm$html$Html$a,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$href('/my_blog/about')
+										$elm$html$Html$Attributes$href('/about')
 									]),
 								_List_fromArray(
 									[
@@ -5650,7 +5650,7 @@ var $author$project$Page$header = _List_fromArray(
 								$elm$html$Html$a,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$href('/my_blog/contact')
+										$elm$html$Html$Attributes$href('/contact')
 									]),
 								_List_fromArray(
 									[
@@ -9182,7 +9182,7 @@ var $author$project$Page$layout = F2(
 									]))
 							]),
 						contentItems)),
-					$author$project$Elmstatic$stylesheet('/my_blog/styles.css'),
+					$author$project$Elmstatic$stylesheet('/styles.css'),
 					$author$project$Styles$styles
 				]));
 	});
