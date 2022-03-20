@@ -83,15 +83,15 @@ header =
     , div [ Attr.class "navigation" ]
         [ ul []
             [ li []
-                [ a [ href "/posts" ]
+                [ a [ href "/my_blog/posts" ]
                     [ text "Posts" ]
                 ]
             , li []
-                [ a [ href "/about" ]
+                [ a [ href "/my_blog/about" ]
                     [ text "About" ]
                 ]
             , li []
-                [ a [ href "/contact" ]
+                [ a [ href "/my_blog/contact" ]
                     [ text "Contact" ]
                 ]
             ]
@@ -129,7 +129,7 @@ layout title contentItems =
            , div [ Attr.class "content" ]
                 ([ h1 [] [ text title ] ] ++ contentItems)
         --    , footer
-           , Elmstatic.stylesheet "/styles.css"
+           , Elmstatic.stylesheet "/my_blog/styles.css"
            , Styles.styles
            ]
 
