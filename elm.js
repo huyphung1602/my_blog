@@ -5381,6 +5381,7 @@ var $author$project$Elmstatic$inlineScript = function (js) {
 				$elm$html$Html$text(js)
 			]));
 };
+var $elm$html$Html$Attributes$name = $elm$html$Html$Attributes$stringProperty('name');
 var $author$project$Elmstatic$script = function (src) {
 	return A3(
 		$elm$html$Html$node,
@@ -5441,6 +5442,18 @@ var $author$project$Elmstatic$htmlTemplate = F2(
 							_List_fromArray(
 								[
 									A2($elm$html$Html$Attributes$attribute, 'charset', 'utf-8')
+								]),
+							_List_Nil),
+							A3(
+							$elm$html$Html$node,
+							'meta',
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$name('viewport'),
+									A2($elm$html$Html$Attributes$attribute, 'width', 'device-width'),
+									A2($elm$html$Html$Attributes$attribute, 'initial-scale', '1'),
+									A2($elm$html$Html$Attributes$attribute, 'maximum-scale', '1'),
+									A2($elm$html$Html$Attributes$attribute, 'user-scalable', 'no')
 								]),
 							_List_Nil),
 							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js'),
@@ -5535,6 +5548,63 @@ var $author$project$Page$footer = A2(
 		]));
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
+var $elm$svg$Svg$circle = $elm$svg$Svg$trustedNode('circle');
+var $elm$svg$Svg$Attributes$cx = _VirtualDom_attribute('cx');
+var $elm$svg$Svg$Attributes$cy = _VirtualDom_attribute('cy');
+var $author$project$Styles$dBgColor = '1A374D';
+var $elm$svg$Svg$Attributes$dominantBaseline = _VirtualDom_attribute('dominant-baseline');
+var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
+var $elm$svg$Svg$Attributes$fontFamily = _VirtualDom_attribute('font-family');
+var $elm$svg$Svg$Attributes$fontWeight = _VirtualDom_attribute('font-weight');
+var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
+var $author$project$Styles$lBgColor = 'F7F6E7';
+var $elm$svg$Svg$Attributes$r = _VirtualDom_attribute('r');
+var $elm$svg$Svg$svg = $elm$svg$Svg$trustedNode('svg');
+var $elm$svg$Svg$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$svg$Svg$Attributes$textAnchor = _VirtualDom_attribute('text-anchor');
+var $elm$svg$Svg$text_ = $elm$svg$Svg$trustedNode('text');
+var $elm$svg$Svg$Attributes$viewBox = _VirtualDom_attribute('viewBox');
+var $elm$svg$Svg$Attributes$width = _VirtualDom_attribute('width');
+var $elm$svg$Svg$Attributes$x = _VirtualDom_attribute('x');
+var $elm$svg$Svg$Attributes$y = _VirtualDom_attribute('y');
+var $author$project$Page$svgLogo = A2(
+	$elm$svg$Svg$svg,
+	_List_fromArray(
+		[
+			$elm$svg$Svg$Attributes$viewBox('0 0 90 90'),
+			$elm$svg$Svg$Attributes$width('90'),
+			$elm$svg$Svg$Attributes$height('90')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			$elm$svg$Svg$circle,
+			_List_fromArray(
+				[
+					$elm$svg$Svg$Attributes$cx('45'),
+					$elm$svg$Svg$Attributes$cy('45'),
+					$elm$svg$Svg$Attributes$r('30'),
+					$elm$svg$Svg$Attributes$fill('#' + $author$project$Styles$dBgColor)
+				]),
+			_List_Nil),
+			A2(
+			$elm$svg$Svg$text_,
+			_List_fromArray(
+				[
+					$elm$svg$Svg$Attributes$x('50%'),
+					$elm$svg$Svg$Attributes$y('50%'),
+					$elm$svg$Svg$Attributes$dominantBaseline('middle'),
+					$elm$svg$Svg$Attributes$textAnchor('middle'),
+					$elm$svg$Svg$Attributes$fill('#' + $author$project$Styles$lBgColor),
+					$elm$svg$Svg$Attributes$fontFamily('JetBrains Mono, monospace'),
+					$elm$svg$Svg$Attributes$fontWeight('600')
+				]),
+			_List_fromArray(
+				[
+					$elm$svg$Svg$text('huy')
+				]))
+		]));
 var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $author$project$Page$header = _List_fromArray(
 	[
@@ -5544,7 +5614,17 @@ var $author$project$Page$header = _List_fromArray(
 			[
 				$elm$html$Html$Attributes$class('header-logo')
 			]),
-		_List_Nil),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$a,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$href('/posts')
+					]),
+				_List_fromArray(
+					[$author$project$Page$svgLogo]))
+			])),
 		A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -5701,7 +5781,6 @@ var $rtfeldman$elm_css$Css$Global$code = $rtfeldman$elm_css$Css$Global$typeSelec
 var $rtfeldman$elm_css$Css$color = function (c) {
 	return A2($rtfeldman$elm_css$Css$property, 'color', c.a5);
 };
-var $author$project$Styles$dBgColor = '1A374D';
 var $rtfeldman$elm_css$Css$Structure$Descendant = 3;
 var $rtfeldman$elm_css$Css$Preprocess$NestSnippet = F2(
 	function (a, b) {
@@ -8143,7 +8222,6 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 	};
 };
 var $rtfeldman$elm_css$Css$italic = {_: 0, a5: 'italic'};
-var $author$project$Styles$lBgColor = 'F7F6E7';
 var $author$project$Styles$ldBgColor = 'FFCE45';
 var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
@@ -8765,7 +8843,7 @@ var $author$project$Styles$styles = function () {
 				_List_fromArray(
 					[
 						$rtfeldman$elm_css$Css$Media$minWidth(
-						$rtfeldman$elm_css$Css$px(768))
+						$rtfeldman$elm_css$Css$px(1024))
 					]))
 			]));
 	var codeStyle = _List_fromArray(
@@ -8805,9 +8883,15 @@ var $author$project$Styles$styles = function () {
 								}($rtfeldman$elm_css$Css$sansSerif)
 								])),
 							$rtfeldman$elm_css$Css$fontSize(
-							$rtfeldman$elm_css$Css$em(1.0)),
+							$rtfeldman$elm_css$Css$em(2)),
 							$rtfeldman$elm_css$Css$lineHeight(
-							$rtfeldman$elm_css$Css$em(1.4))
+							$rtfeldman$elm_css$Css$em(1.4)),
+							wideScreen(
+							_List_fromArray(
+								[
+									$rtfeldman$elm_css$Css$fontSize(
+									$rtfeldman$elm_css$Css$em(1))
+								]))
 						])),
 					$rtfeldman$elm_css$Css$Global$a(
 					_List_fromArray(
@@ -8920,15 +9004,15 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
 							$rtfeldman$elm_css$Css$backgroundColor(
 							$rtfeldman$elm_css$Css$hex($author$project$Styles$ldBgColor)),
+							A3(
+							$rtfeldman$elm_css$Css$borderBottom3,
+							$rtfeldman$elm_css$Css$px(2),
+							$rtfeldman$elm_css$Css$solid,
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							wideScreen(
 							_List_fromArray(
 								[
-									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$left),
-									A3(
-									$rtfeldman$elm_css$Css$borderBottom3,
-									$rtfeldman$elm_css$Css$px(2),
-									$rtfeldman$elm_css$Css$solid,
-									$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor))
+									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$left)
 								]))
 						])),
 					A2(
@@ -8936,7 +9020,7 @@ var $author$project$Styles$styles = function () {
 					'navigation',
 					_List_fromArray(
 						[
-							$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
+							$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$right),
 							A3(
 							$rtfeldman$elm_css$Css$borderBottom3,
 							$rtfeldman$elm_css$Css$px(2),
@@ -8981,14 +9065,17 @@ var $author$project$Styles$styles = function () {
 											$rtfeldman$elm_css$Css$int(600))
 										]))
 								])),
+							$rtfeldman$elm_css$Css$marginTop(
+							$rtfeldman$elm_css$Css$px(0)),
+							$rtfeldman$elm_css$Css$padding(
+							$rtfeldman$elm_css$Css$px(30)),
 							wideScreen(
 							_List_fromArray(
 								[
 									$rtfeldman$elm_css$Css$marginTop(
 									$rtfeldman$elm_css$Css$px(0)),
 									$rtfeldman$elm_css$Css$padding(
-									$rtfeldman$elm_css$Css$px(0)),
-									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$right)
+									$rtfeldman$elm_css$Css$px(0))
 								]))
 						])),
 					A2(

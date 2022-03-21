@@ -11,7 +11,7 @@ styles : Html msg
 styles =
     let
         wideScreen =
-            withMedia [ only screen [ Media.minWidth <| Css.px 768 ] ]
+            withMedia [ only screen [ Media.minWidth <| Css.px 1024 ] ]
 
         codeStyle =
             [ fontFamilies [ "JetBrains Mono, monospace", .value monospace ]
@@ -24,8 +24,9 @@ styles =
             , backgroundColor <| hex mdBgColor
             , Css.color <| hex dBgColor
             , fontFamilies [ "JetBrains Mono, monospace", "Open Sans", "Arial", .value sansSerif ]
-            , fontSize <| Css.em 1.0
+            , fontSize <| Css.em 2
             , lineHeight <| Css.em 1.4
+            , wideScreen [ fontSize <| Css.em 1 ]
             ]
         , a
             [ Css.color <| hex dBgColor
@@ -53,10 +54,11 @@ styles =
             [ paddingTop <| px 6
             , textAlign center
             , backgroundColor <| hex ldBgColor
-            , wideScreen [ textAlign left, borderBottom3 (px 2) solid (hex dBgColor) ]
+            , borderBottom3 (px 2) solid (hex dBgColor)
+            , wideScreen [ textAlign left ]
             ]
         , class "navigation"
-            [ textAlign center
+            [ textAlign right
             , borderBottom3 (px 2) solid (hex dBgColor)
             , backgroundColor <| hex ldBgColor
             , padding <| px 10
@@ -75,7 +77,8 @@ styles =
                     , fontWeight <| (int 600)
                     ]
                 ]
-            , wideScreen [ marginTop <| px 0, padding <| px 0, textAlign right ]
+            , marginTop <| px 0, padding <| px 30
+            , wideScreen [ marginTop <| px 0, padding <| px 0 ]
             ]
         , class "content"
             [ Css.maxWidth <| vw 100

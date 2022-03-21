@@ -65,10 +65,9 @@ svgLogo =
             , y "50%"
             , dominantBaseline "middle"
             , textAnchor "middle"
-            , stroke ("#" ++ lBgColor)
-            , strokeWidth "2"
+            , fill ("#" ++ lBgColor)
             , fontFamily "JetBrains Mono, monospace"
-            , fontWeight "100"
+            , fontWeight "600"
             ]
             [
                 Svg.text "huy"
@@ -78,10 +77,9 @@ svgLogo =
 header : List (Html Never)
 header =
     [ div [ Attr.class "header-logo" ]
-        -- [ a [ href "/posts" ]
-        --     [ svgLogo ]
-        -- ]
-        []
+        [ a [ href "/posts" ]
+            [ svgLogo ]
+        ]
     , div [ Attr.class "navigation" ]
         [ ul []
             [ li []

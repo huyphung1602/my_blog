@@ -141,6 +141,7 @@ htmlTemplate title contentNodes =
             [ node "title" [] [ text title ]
             , node "link" [ attribute "href" "https://i.imgur.com/TvSmXhH.png", attribute "rel" "icon", attribute "type" "image/x-icon" ] []
             , node "meta" [ attribute "charset" "utf-8" ] []
+            , node "meta" [ name "viewport", attribute "width" "device-width", attribute  "initial-scale" "1", attribute "maximum-scale" "1", attribute "user-scalable" "no" ] []
             , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"
             , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"
             , inlineScript "hljs.initHighlightingOnLoad();"
