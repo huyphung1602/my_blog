@@ -1,5 +1,5 @@
 ---
-title: "2022.03.21 - Reading Note: Partially Apply Arguments in Elm"
+title: "2022.03.22 - Reading Note: Partially Apply Arguments in Elm"
 tags: software functional elm
 ---
 

@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Tue, 22 Mar 2022 03:53:04 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Mar 2022 04:00:39 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -21,7 +21,7 @@ What makes a pragmatic programmer?
 Early adopter: As a Software engineer, you must have an instinct for technologies and techniques. You keep learning expli...]]></description>
         </item>
         <item>
-            <title><![CDATA[2022.03.21 - Reading Note: Partially Apply Arguments in Elm]]></title>
+            <title><![CDATA[2022.03.22 - Reading Note: Partially Apply Arguments in Elm]]></title>
             <link>/2022-03-22-partial-application-in-elm</link>
             <guid>/2022-03-22-partial-application-in-elm</guid>
             <pubDate>Tue, 22 Mar 2022 00:00:00 GMT</pubDate>
