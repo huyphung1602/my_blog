@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Mon, 21 Mar 2022 00:15:21 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 22 Mar 2022 03:53:04 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -19,6 +19,29 @@
 What makes a pragmatic programmer?
 
 Early adopter: As a Software engineer, you must have an instinct for technologies and techniques. You keep learning expli...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[2022.03.21 - Reading Note: Partially Apply Arguments in Elm]]></title>
+            <link>/2022-03-22-partial-application-in-elm</link>
+            <guid>/2022-03-22-partial-application-in-elm</guid>
+            <pubDate>Tue, 22 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[In many OOP programming languages such as Ruby. You have to fully apply the arguments when calling a function.
+
+def sayhello(greet, personname)
+  puts "#{greet} #{person_name}"
+end
+
+say_hello('Hi', 'Huy Phung') # Hi Huy Phung
+
+In many functional programming languages such as Haskell, or Elm. You can partially apply the arguments when calling a function.
+
+sayHello : String -> String -> String
+sayHello greet personName =
+  greet ++ " " ++ personName
+
+> hello = sayHello "Hello"
+ : String -> String
+...]]></description>
         </item>
     </channel>
 </rss>

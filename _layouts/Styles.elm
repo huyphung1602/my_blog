@@ -14,7 +14,11 @@ styles =
             withMedia [ only screen [ Media.minWidth <| Css.px 1024 ] ]
 
         codeStyle =
-            [ fontFamilies [ "JetBrains Mono, monospace", .value monospace ]
+            [ fontFamilies
+                [ "JetBrains Mono, monospace", .value monospace]
+            , Css.color <| hex "ed143d"
+            , backgroundColor <| hex "f0f0f0"
+            , padding <| px 2
             ]
     in
     global
@@ -94,7 +98,9 @@ styles =
                 ]
             ]
         , class "footer"
-            [ textAlign center
+            [ displayFlex
+            , alignSelf flexEnd
+            , textAlign center
             , borderTop3 (px 2) solid (hex dBgColor)
             , backgroundColor <| hex ldBgColor
             , Css.color <| hex dBgColor
@@ -104,6 +110,7 @@ styles =
                 ]
             , wideScreen
                 [ lineHeight <| px 80
+                , display inlineBlock
                 , textAlign center
                 , descendants
                     [ class "link"

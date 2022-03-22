@@ -5717,11 +5717,126 @@ var $rtfeldman$elm_css$Css$Global$typeSelector = F2(
 			]);
 	});
 var $rtfeldman$elm_css$Css$Global$a = $rtfeldman$elm_css$Css$Global$typeSelector('a');
-var $rtfeldman$elm_css$Css$Structure$Compatible = 0;
-var $rtfeldman$elm_css$Css$auto = {bX: 0, a: 0, Z: 0, aI: 0, cc: 0, ac: 0, E: 0, x: 0, af: 0, u: 0, aR: 0, ak: 0, q: 0, a5: 'auto'};
+var $rtfeldman$elm_css$Css$Preprocess$ApplyStyles = function (a) {
+	return {$: 6, a: a};
+};
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
 var $rtfeldman$elm_css$Css$Preprocess$AppendProperty = function (a) {
 	return {$: 0, a: a};
 };
+var $rtfeldman$elm_css$Css$Internal$property = F2(
+	function (key, value) {
+		return $rtfeldman$elm_css$Css$Preprocess$AppendProperty(key + (':' + value));
+	});
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (!maybe.$) {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $rtfeldman$elm_css$Css$Internal$getOverloadedProperty = F3(
+	function (functionName, desiredKey, style) {
+		getOverloadedProperty:
+		while (true) {
+			switch (style.$) {
+				case 0:
+					var str = style.a;
+					var key = A2(
+						$elm$core$Maybe$withDefault,
+						'',
+						$elm$core$List$head(
+							A2($elm$core$String$split, ':', str)));
+					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, key);
+				case 1:
+					var selector = style.a;
+					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-selector'));
+				case 2:
+					var combinator = style.a;
+					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-combinator'));
+				case 3:
+					var pseudoElement = style.a;
+					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-pseudo-element setter'));
+				case 4:
+					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-media-query'));
+				case 5:
+					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-keyframes'));
+				default:
+					if (!style.a.b) {
+						return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-empty-Style'));
+					} else {
+						if (!style.a.b.b) {
+							var _v1 = style.a;
+							var only = _v1.a;
+							var $temp$functionName = functionName,
+								$temp$desiredKey = desiredKey,
+								$temp$style = only;
+							functionName = $temp$functionName;
+							desiredKey = $temp$desiredKey;
+							style = $temp$style;
+							continue getOverloadedProperty;
+						} else {
+							var _v2 = style.a;
+							var first = _v2.a;
+							var rest = _v2.b;
+							var $temp$functionName = functionName,
+								$temp$desiredKey = desiredKey,
+								$temp$style = $rtfeldman$elm_css$Css$Preprocess$ApplyStyles(rest);
+							functionName = $temp$functionName;
+							desiredKey = $temp$desiredKey;
+							style = $temp$style;
+							continue getOverloadedProperty;
+						}
+					}
+			}
+		}
+	});
+var $rtfeldman$elm_css$Css$Internal$IncompatibleUnits = 0;
+var $rtfeldman$elm_css$Css$Structure$Compatible = 0;
+var $elm$core$String$fromFloat = _String_fromNumber;
+var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
+	function (units, unitLabel, numericValue) {
+		return {
+			a6: 0,
+			bf: 0,
+			Z: 0,
+			l: 0,
+			au: 0,
+			ac: 0,
+			E: 0,
+			ad: 0,
+			ae: 0,
+			M: 0,
+			N: 0,
+			x: 0,
+			G: numericValue,
+			aj: 0,
+			am: unitLabel,
+			aC: units,
+			a5: _Utils_ap(
+				$elm$core$String$fromFloat(numericValue),
+				unitLabel)
+		};
+	});
+var $rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty = A3($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, '', 0);
+var $rtfeldman$elm_css$Css$alignSelf = function (fn) {
+	return A3(
+		$rtfeldman$elm_css$Css$Internal$getOverloadedProperty,
+		'alignSelf',
+		'align-self',
+		fn($rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty));
+};
+var $rtfeldman$elm_css$Css$auto = {bX: 0, a: 0, Z: 0, aI: 0, cc: 0, ac: 0, E: 0, x: 0, af: 0, u: 0, aR: 0, ak: 0, q: 0, a5: 'auto'};
 var $rtfeldman$elm_css$Css$property = F2(
 	function (key, value) {
 		return $rtfeldman$elm_css$Css$Preprocess$AppendProperty(key + (':' + value));
@@ -5788,6 +5903,7 @@ var $rtfeldman$elm_css$Css$Preprocess$NestSnippet = F2(
 	});
 var $rtfeldman$elm_css$Css$Global$descendants = $rtfeldman$elm_css$Css$Preprocess$NestSnippet(3);
 var $rtfeldman$elm_css$Css$display = $rtfeldman$elm_css$Css$prop1('display');
+var $rtfeldman$elm_css$Css$displayFlex = A2($rtfeldman$elm_css$Css$property, 'display', 'flex');
 var $elm$core$List$append = F2(
 	function (xs, ys) {
 		if (!ys.b) {
@@ -5949,32 +6065,8 @@ var $rtfeldman$elm_css$Css$Global$each = F2(
 						snippetCreators))));
 	});
 var $rtfeldman$elm_css$Css$EmUnits = 0;
-var $elm$core$String$fromFloat = _String_fromNumber;
-var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
-	function (units, unitLabel, numericValue) {
-		return {
-			a6: 0,
-			bf: 0,
-			Z: 0,
-			l: 0,
-			au: 0,
-			ac: 0,
-			E: 0,
-			ad: 0,
-			ae: 0,
-			M: 0,
-			N: 0,
-			x: 0,
-			G: numericValue,
-			aj: 0,
-			am: unitLabel,
-			aC: units,
-			a5: _Utils_ap(
-				$elm$core$String$fromFloat(numericValue),
-				unitLabel)
-		};
-	});
 var $rtfeldman$elm_css$Css$em = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'em');
+var $rtfeldman$elm_css$Css$flexEnd = $rtfeldman$elm_css$Css$prop1('flex-end');
 var $elm$core$Basics$composeL = F3(
 	function (g, f, x) {
 		return g(
@@ -6253,15 +6345,6 @@ var $elm$core$Maybe$map = F2(
 				f(value));
 		} else {
 			return $elm$core$Maybe$Nothing;
-		}
-	});
-var $elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (!maybe.$) {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
 		}
 	});
 var $rtfeldman$elm_css$Css$Structure$Output$charsetToString = function (charset) {
@@ -7070,15 +7153,6 @@ var $rtfeldman$elm_css$Hash$fromString = function (str) {
 		'_',
 		$rtfeldman$elm_hex$Hex$toString(
 			A2($rtfeldman$elm_css$ElmCssVendor$Murmur3$hashString, $rtfeldman$elm_css$Hash$murmurSeed, str)));
-};
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
 };
 var $rtfeldman$elm_css$Css$Preprocess$Resolve$last = function (list) {
 	last:
@@ -8145,9 +8219,6 @@ var $rtfeldman$elm_css$Css$makeImportant = function (str) {
 		' !important',
 		$elm$core$String$toLower(str)) ? str : (str + ' !important');
 };
-var $rtfeldman$elm_css$Css$Preprocess$ApplyStyles = function (a) {
-	return {$: 6, a: a};
-};
 var $rtfeldman$elm_css$Css$Preprocess$ExtendSelector = F2(
 	function (a, b) {
 		return {$: 1, a: a, b: b};
@@ -8273,68 +8344,6 @@ var $rtfeldman$elm_css$Css$Global$small = $rtfeldman$elm_css$Css$Global$typeSele
 var $rtfeldman$elm_css$Css$solid = {n: 0, R: 0, a5: 'solid'};
 var $rtfeldman$elm_css$Css$Global$span = $rtfeldman$elm_css$Css$Global$typeSelector('span');
 var $rtfeldman$elm_css$Css$Global$svg = $rtfeldman$elm_css$Css$Global$typeSelector('svg');
-var $rtfeldman$elm_css$Css$Internal$property = F2(
-	function (key, value) {
-		return $rtfeldman$elm_css$Css$Preprocess$AppendProperty(key + (':' + value));
-	});
-var $rtfeldman$elm_css$Css$Internal$getOverloadedProperty = F3(
-	function (functionName, desiredKey, style) {
-		getOverloadedProperty:
-		while (true) {
-			switch (style.$) {
-				case 0:
-					var str = style.a;
-					var key = A2(
-						$elm$core$Maybe$withDefault,
-						'',
-						$elm$core$List$head(
-							A2($elm$core$String$split, ':', str)));
-					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, key);
-				case 1:
-					var selector = style.a;
-					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-selector'));
-				case 2:
-					var combinator = style.a;
-					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-combinator'));
-				case 3:
-					var pseudoElement = style.a;
-					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-pseudo-element setter'));
-				case 4:
-					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-media-query'));
-				case 5:
-					return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-inapplicable-Style-for-keyframes'));
-				default:
-					if (!style.a.b) {
-						return A2($rtfeldman$elm_css$Css$Internal$property, desiredKey, 'elm-css-error-cannot-apply-' + (functionName + '-with-empty-Style'));
-					} else {
-						if (!style.a.b.b) {
-							var _v1 = style.a;
-							var only = _v1.a;
-							var $temp$functionName = functionName,
-								$temp$desiredKey = desiredKey,
-								$temp$style = only;
-							functionName = $temp$functionName;
-							desiredKey = $temp$desiredKey;
-							style = $temp$style;
-							continue getOverloadedProperty;
-						} else {
-							var _v2 = style.a;
-							var first = _v2.a;
-							var rest = _v2.b;
-							var $temp$functionName = functionName,
-								$temp$desiredKey = desiredKey,
-								$temp$style = $rtfeldman$elm_css$Css$Preprocess$ApplyStyles(rest);
-							functionName = $temp$functionName;
-							desiredKey = $temp$desiredKey;
-							style = $temp$style;
-							continue getOverloadedProperty;
-						}
-					}
-			}
-		}
-	});
-var $rtfeldman$elm_css$Css$Internal$IncompatibleUnits = 0;
-var $rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty = A3($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, '', 0);
 var $rtfeldman$elm_css$Css$textAlign = function (fn) {
 	return A3(
 		$rtfeldman$elm_css$Css$Internal$getOverloadedProperty,
@@ -8855,7 +8864,13 @@ var $author$project$Styles$styles = function () {
 					function ($) {
 					return $.a5;
 				}($rtfeldman$elm_css$Css$monospace)
-				]))
+				])),
+			$rtfeldman$elm_css$Css$color(
+			$rtfeldman$elm_css$Css$hex('ed143d')),
+			$rtfeldman$elm_css$Css$backgroundColor(
+			$rtfeldman$elm_css$Css$hex('f0f0f0')),
+			$rtfeldman$elm_css$Css$padding(
+			$rtfeldman$elm_css$Css$px(2))
 		]);
 	return $rtfeldman$elm_css$Html$Styled$toUnstyled(
 		$rtfeldman$elm_css$Css$Global$global(
@@ -9111,6 +9126,8 @@ var $author$project$Styles$styles = function () {
 					'footer',
 					_List_fromArray(
 						[
+							$rtfeldman$elm_css$Css$displayFlex,
+							$rtfeldman$elm_css$Css$alignSelf($rtfeldman$elm_css$Css$flexEnd),
 							$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
 							A3(
 							$rtfeldman$elm_css$Css$borderTop3,
@@ -9144,6 +9161,7 @@ var $author$project$Styles$styles = function () {
 								[
 									$rtfeldman$elm_css$Css$lineHeight(
 									$rtfeldman$elm_css$Css$px(80)),
+									$rtfeldman$elm_css$Css$display($rtfeldman$elm_css$Css$inlineBlock),
 									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
 									$rtfeldman$elm_css$Css$Global$descendants(
 									_List_fromArray(
@@ -9231,17 +9249,15 @@ var $author$project$Page$layout = F2(
 						[
 							$elm$html$Html$Attributes$class('content')
 						]),
-					_Utils_ap(
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$h1,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text(title)
-									]))
-							]),
+					A2(
+						$elm$core$List$cons,
+						A2(
+							$elm$html$Html$h1,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(title)
+								])),
 						contentItems)),
 					$author$project$Page$footer,
 					$author$project$Elmstatic$stylesheet('/styles.css'),
