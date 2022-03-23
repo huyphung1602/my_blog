@@ -5556,6 +5556,7 @@ var $author$project$Styles$dBgColor = '1A374D';
 var $elm$svg$Svg$Attributes$dominantBaseline = _VirtualDom_attribute('dominant-baseline');
 var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
 var $elm$svg$Svg$Attributes$fontFamily = _VirtualDom_attribute('font-family');
+var $elm$svg$Svg$Attributes$fontSize = _VirtualDom_attribute('font-size');
 var $elm$svg$Svg$Attributes$fontWeight = _VirtualDom_attribute('font-weight');
 var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
 var $author$project$Styles$lBgColor = 'F7F6E7';
@@ -5597,8 +5598,9 @@ var $author$project$Page$svgLogo = A2(
 					$elm$svg$Svg$Attributes$dominantBaseline('middle'),
 					$elm$svg$Svg$Attributes$textAnchor('middle'),
 					$elm$svg$Svg$Attributes$fill('#' + $author$project$Styles$lBgColor),
-					$elm$svg$Svg$Attributes$fontFamily('JetBrains Mono, monospace'),
-					$elm$svg$Svg$Attributes$fontWeight('600')
+					$elm$svg$Svg$Attributes$fontFamily('JetBrains Mono, monospace, Open Sans, Arial'),
+					$elm$svg$Svg$Attributes$fontWeight('600'),
+					$elm$svg$Svg$Attributes$fontSize('18px')
 				]),
 			_List_fromArray(
 				[

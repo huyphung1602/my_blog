@@ -66,8 +66,9 @@ svgLogo =
             , dominantBaseline "middle"
             , textAnchor "middle"
             , fill ("#" ++ lBgColor)
-            , fontFamily "JetBrains Mono, monospace"
+            , fontFamily "JetBrains Mono, monospace, Open Sans, Arial"
             , fontWeight "600"
+            , fontSize "18px"
             ]
             [
                 Svg.text "huy"
