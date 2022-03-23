@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Wed, 23 Mar 2022 04:18:35 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Mar 2022 16:51:18 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -42,6 +42,26 @@ sayHello greet personName =
 > hello = sayHello "Hello"
  : String -> String
 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[2022.03.23 - Some thoughts on writing]]></title>
+            <link>/2022-03-23-some-thoughs-on-writing</link>
+            <guid>/2022-03-23-some-thoughs-on-writing</guid>
+            <pubDate>Wed, 23 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[As a software engineer, I found that writing is an important skill. Besides coding, writing helps us to:
+
+Describe our thinking in words
+Reinforce your knowledge and store it in a structured form
+Share our knowledge
+
+I am not a good writer. But I want to share the tips I used when writing this blog.
+
+Write it short but follow the main points
+
+Before I write anything, I plan it. For example, I defined the purpose of this post as below:
+
+The importance of this skill for an engineer.
+I want to shar...]]></description>
         </item>
     </channel>
 </rss>
