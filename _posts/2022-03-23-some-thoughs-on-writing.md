@@ -1,5 +1,5 @@
 ---
-title: "2022.03.23 - Some thoughts on writing"
+title: "Some thoughts on writing"
 tags: software writing
 ---
 

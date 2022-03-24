@@ -1,5 +1,5 @@
 ---
-title: "2022.03.21 - The Pragmatic Programmer Characteristic"
+title: "The Pragmatic Programmer Characteristic"
 tags: software
 ---
 

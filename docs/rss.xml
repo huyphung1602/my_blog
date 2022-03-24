@@ -4,13 +4,13 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Wed, 23 Mar 2022 16:51:18 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Mar 2022 06:50:35 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
         <copyright>Copyright: Huy Phung</copyright>
         <item>
-            <title><![CDATA[2022.03.21 - The Pragmatic Programmer Characteristic]]></title>
+            <title><![CDATA[The Pragmatic Programmer Characteristic]]></title>
             <link>/2022-03-21-the-pragmatic-programmer-characteristic</link>
             <guid>/2022-03-21-the-pragmatic-programmer-characteristic</guid>
             <pubDate>Mon, 21 Mar 2022 00:00:00 GMT</pubDate>
@@ -21,7 +21,7 @@ What makes a pragmatic programmer?
 Early adopter: As a Software engineer, you must have an instinct for technologies and techniques. You keep learning expli...]]></description>
         </item>
         <item>
-            <title><![CDATA[2022.03.22 - Reading Note: Partially Apply Arguments in Elm]]></title>
+            <title><![CDATA[Reading Note: Partially Apply Arguments in Elm]]></title>
             <link>/2022-03-22-partial-application-in-elm</link>
             <guid>/2022-03-22-partial-application-in-elm</guid>
             <pubDate>Tue, 22 Mar 2022 00:00:00 GMT</pubDate>
@@ -44,7 +44,7 @@ sayHello greet personName =
 ...]]></description>
         </item>
         <item>
-            <title><![CDATA[2022.03.23 - Some thoughts on writing]]></title>
+            <title><![CDATA[Some thoughts on writing]]></title>
             <link>/2022-03-23-some-thoughs-on-writing</link>
             <guid>/2022-03-23-some-thoughs-on-writing</guid>
             <pubDate>Wed, 23 Mar 2022 00:00:00 GMT</pubDate>
