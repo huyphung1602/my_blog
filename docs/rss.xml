@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Thu, 24 Mar 2022 06:50:35 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Mar 2022 18:13:40 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -62,6 +62,29 @@ Before I write anything, I plan it. For example, I defined the purpose of this p
 
 The importance of this skill for an engineer.
 I want to shar...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Elm module]]></title>
+            <link>/2022-03-24-elm-module</link>
+            <guid>/2022-03-24-elm-module</guid>
+            <pubDate>Thu, 24 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Elm Module
+
+Every Elm file is a module.
+Modules organize the code into logical units.
+Each module contains one or more constants and functions that it can expose to the other modules.
+Elm needs the main module to compile your application into a JavaScript or HTML file for the browser.
+
+A simple main module in Elm:
+
+module Main exposing (main)
+import Html exposing (Html, text)
+
+main : Html msg
+main =
+  text "Hello, Elm"
+
+The main constant name is important but not the module's name. You could cal...]]></description>
         </item>
     </channel>
 </rss>
