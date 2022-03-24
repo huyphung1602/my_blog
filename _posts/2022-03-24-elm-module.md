@@ -30,11 +30,11 @@ module Greenday exposing (main)
 However, if you change the name of the main constant. Elm will raise an error when you build your main module.
 
 ```elm
-module Greenday exposing (wakeMeUpWhenSeptemperEnd)
+module Greenday exposing (wakeMeUpWhenSeptemperEnds)
 import Html exposing (Html, text)
 
-wakeMeUpWhenSeptemperEnd : Html msg
-wakeMeUpWhenSeptemperEnd =
+wakeMeUpWhenSeptemperEnds : Html msg
+wakeMeUpWhenSeptemperEnds =
   text "Hello, Elm"
 ```
 
