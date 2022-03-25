@@ -98,6 +98,7 @@ styles =
                         [
                             a [ fontWeight <| (int 600)
                             , textDecoration underline
+                            , overflowWrap breakWord
                             ]
                         ]
                     ]

@@ -5867,6 +5867,7 @@ var $rtfeldman$elm_css$Css$border3 = $rtfeldman$elm_css$Css$prop3('border');
 var $rtfeldman$elm_css$Css$borderBottom3 = $rtfeldman$elm_css$Css$prop3('border-bottom');
 var $rtfeldman$elm_css$Css$borderRadius = $rtfeldman$elm_css$Css$prop1('border-radius');
 var $rtfeldman$elm_css$Css$borderTop3 = $rtfeldman$elm_css$Css$prop3('border-top');
+var $rtfeldman$elm_css$Css$breakWord = {a$: 0, a5: 'break-word'};
 var $rtfeldman$elm_css$Css$center = $rtfeldman$elm_css$Css$prop1('center');
 var $rtfeldman$elm_css$Css$Structure$ClassSelector = function (a) {
 	return {$: 0, a: a};
@@ -8322,6 +8323,7 @@ var $rtfeldman$elm_css$Css$Structure$OnlyQuery = F2(
 		return {$: 1, a: a, b: b};
 	});
 var $rtfeldman$elm_css$Css$Media$only = $rtfeldman$elm_css$Css$Structure$OnlyQuery;
+var $rtfeldman$elm_css$Css$overflowWrap = $rtfeldman$elm_css$Css$prop1('overflow-wrap');
 var $rtfeldman$elm_css$Css$overflowX = $rtfeldman$elm_css$Css$prop1('overflow-x');
 var $rtfeldman$elm_css$Css$Global$p = $rtfeldman$elm_css$Css$Global$typeSelector('p');
 var $rtfeldman$elm_css$Css$padding = $rtfeldman$elm_css$Css$prop1('padding');
@@ -9129,7 +9131,8 @@ var $author$project$Styles$styles = function () {
 														[
 															$rtfeldman$elm_css$Css$fontWeight(
 															$rtfeldman$elm_css$Css$int(600)),
-															$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$underline)
+															$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$underline),
+															$rtfeldman$elm_css$Css$overflowWrap($rtfeldman$elm_css$Css$breakWord)
 														]))
 												]))
 										]))
