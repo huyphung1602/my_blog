@@ -91,7 +91,13 @@ styles =
                         [
                             a [ fontWeight <| (int 600)
                             , textDecoration underline
-                            , fontStyle italic
+                            ]
+                        ]
+                    ]
+                , li [ descendants 
+                        [
+                            a [ fontWeight <| (int 600)
+                            , textDecoration underline
                             ]
                         ]
                     ]

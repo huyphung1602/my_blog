@@ -6092,7 +6092,6 @@ var $rtfeldman$elm_css$Css$fontFamilies = A2(
 	$rtfeldman$elm_css$Css$prop1('font-family'),
 	$rtfeldman$elm_css$Css$stringsToValue);
 var $rtfeldman$elm_css$Css$fontSize = $rtfeldman$elm_css$Css$prop1('font-size');
-var $rtfeldman$elm_css$Css$fontStyle = $rtfeldman$elm_css$Css$prop1('font-style');
 var $rtfeldman$elm_css$Css$fontWeight = function (_v0) {
 	var value = _v0.a5;
 	return A2($rtfeldman$elm_css$Css$property, 'font-weight', value);
@@ -8294,7 +8293,6 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 		a5: $elm$core$String$fromInt(val)
 	};
 };
-var $rtfeldman$elm_css$Css$italic = {_: 0, a5: 'italic'};
 var $author$project$Styles$ldBgColor = 'FFCE45';
 var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
@@ -9116,8 +9114,22 @@ var $author$project$Styles$styles = function () {
 														[
 															$rtfeldman$elm_css$Css$fontWeight(
 															$rtfeldman$elm_css$Css$int(600)),
-															$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$underline),
-															$rtfeldman$elm_css$Css$fontStyle($rtfeldman$elm_css$Css$italic)
+															$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$underline)
+														]))
+												]))
+										])),
+									$rtfeldman$elm_css$Css$Global$li(
+									_List_fromArray(
+										[
+											$rtfeldman$elm_css$Css$Global$descendants(
+											_List_fromArray(
+												[
+													$rtfeldman$elm_css$Css$Global$a(
+													_List_fromArray(
+														[
+															$rtfeldman$elm_css$Css$fontWeight(
+															$rtfeldman$elm_css$Css$int(600)),
+															$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$underline)
 														]))
 												]))
 										]))

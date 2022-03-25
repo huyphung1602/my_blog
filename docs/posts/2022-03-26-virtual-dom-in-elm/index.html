@@ -1,0 +1,236 @@
+<!doctype html><html><head><title>Reading Note: Virtual DOM in Elm | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: Virtual DOM in Elm</h1><div class="post-metadata"><span>2022-03-26</span><span>•</span><a href="/tags/software">software</a><a href="/tags/functional">functional</a><a href="/tags/elm">elm</a><a href="/tags/frontend">frontend</a></div><div attr.class="markdown"><p>Yesterday, I read about the Virtual DOM in Elm. As a backend developer by default, I am curious about this topic and want to learn more about why there is something called Virtual DOM.</p>
+<h2 id="what-is-dom-">What is DOM?</h2>
+<p>The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web.</p>
+<ul>
+<li>DOM is a programming interface for web documents.</li>
+<li>DOM representation allows it to be manipulated (structure, style, and content).</li>
+<li>The DOM represents the document as nodes and objects. In that way, programming languages can interact with the page.</li>
+<li>The HTML DOM is tree-structured.</li>
+</ul>
+<p><img src="https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/dom-structure.svg" alt="example-dom-tree"></p>
+<h2 id="how-are-dom-updates-rendered-on-the-screen-">How are DOM updates rendered on the screen?</h2>
+<p>When we do:</p>
+<pre><code class="lang-javascript">document.getElementById('elementId').innerHTML = "New Value";
+</code></pre>
+<p>The following things happen:</p>
+<ol>
+<li>Browser lexical analysis HTML.</li>
+<li>Delete the child elements of the element.</li>
+<li>Update the DOM with the new value.</li>
+<li>Recalculate CSS for parent and child elements.</li>
+<li>Accurately coordinate and update the layout.</li>
+<li>Traverse the entire render tree and draw in the browser.</li>
+</ol>
+<h2 id="the-problems-of-dom-updates">The problems of DOM updates</h2>
+<p>Updating the DOM by manipulating it has the two problems:</p>
+<ul>
+<li>It’s hard to manage. Imagine you have to tweak an event handler. We have to dive deep into the code to know what is going on when we lost the context. It is time-consuming and bug risky.</li>
+<li>It’s inefficient. We have to find things manually.</li>
+</ul>
+<h2 id="virtual-dom-in-elm">Virtual DOM in Elm</h2>
+<p>Virtual DOM is an in-memory representation of Real DOM. It is a lightweight JavaScript object which is a copy of the Real DOM.
+The next part will describe the Virtual DOM in Elm. You have to be familiar with the basic concepts (Model, Update, View) of <a href="https://guide.elm-lang.org/architecture/">The Elm Architechture</a></p>
+<p>In <strong>Elm</strong>, the <code>view</code> function with the <code>initialModel</code> produce a virtual DOM representation of HTML we want to display. Elm interprets the virtual DOM and renders the correct HTML in the browser.</p>
+<p><img src="https://i.imgur.com/8Ab4zcl.png" alt="virtual-dom-to-html-elm"></p>
+<p>Imagine that we have a button with the event function <code>onClick</code> which mapped to a <code>ButtonClick</code> message in the <code>update</code> function.</p>
+<p>Elm reads through the returned virtual DOM and encounters the event attribute, using the DOM API to wire up a click handler from the button’s DOM node. When we click the button, the click handler will dispatch the <code>ButtonClick</code> message to queue in Elm runtime.</p>
+<p>The Elm runtime will pick the message from the queue and call our update function with the message and current model. The update function will use the <code>case</code> expression to return the new model with new changes.</p>
+<p><img src="https://i.imgur.com/KDeFA1m.png" alt="elm-message-queue-update"></p>
+<p>The Elm runtime then calls your view function on the new model to retrieve a new virtual DOM representation. Elm compares the current virtual DOM with the new virtual DOM and computes a <strong>diff</strong>. Elm creates a list of <strong>patches</strong> to apply to the real DOM in order to make it reflect the new virtual DOM. The <strong>diff</strong> and <strong>patches</strong> give our application better performance because they help Elm runtime avoid rendering the entire application. Instead, Elm runtime adds, removes, and replaces DOM nodes <strong>only where necessary</strong>.</p>
+<p><img src="https://i.imgur.com/WrbUZJ9.png" alt="elm-virtual-dom-update"></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://pragprog.com/titles/jfelm/programming-elm/">Programming Elm</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction</a></li>
+<li><a href="https://blog.fearcat.in/a?ID=01500-f3385d05-62df-4868-a6ea-85c750c0fc9d">https://blog.fearcat.in/a?ID=01500-f3385d05-62df-4868-a6ea-85c750c0fc9d</a></li>
+<li><a href="https://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/">https://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/</a></li>
+<li><a href="https://www.tezify.com/post/what-is-virtual-dom-and-what-problem-does-it-solve/">https://www.tezify.com/post/what-is-virtual-dom-and-what-problem-does-it-solve/</a></li>
+</ul>
+</div></div><div class="footer">A journey of a thousand miles begins with a single step</div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:JetBrains Mono, monospace, Open Sans, Arial, sans-serif;
+    font-size:2em;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:2px;
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:JetBrains Mono, monospace, Proza Libre, Helvetica, sans-serif;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>

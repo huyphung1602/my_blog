@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Thu, 24 Mar 2022 18:15:15 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 25 Mar 2022 21:41:53 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -85,6 +85,21 @@ main =
   text "Hello, Elm"
 
 The main constant name is important but not the module's name. You could cal...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Virtual DOM in Elm]]></title>
+            <link>/2022-03-26-virtual-dom-in-elm</link>
+            <guid>/2022-03-26-virtual-dom-in-elm</guid>
+            <pubDate>Sat, 26 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Yesterday, I read about the Virtual DOM in Elm. As a backend developer by default, I am curious about this topic and want to learn more about why there is something called Virtual DOM.
+
+What is DOM?
+
+The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web.
+
+DOM is a programming interface for web documents.
+DOM representation allows it to be manipulated (structure, style, and content).
+The DOM represents the docume...]]></description>
         </item>
     </channel>
 </rss>
