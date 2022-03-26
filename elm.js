@@ -5536,6 +5536,16 @@ var $author$project$Elmstatic$layout = F2(
 			});
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$html$Html$img = _VirtualDom_node('img');
+var $elm$html$Html$Attributes$src = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'src',
+		_VirtualDom_noJavaScriptOrHtmlUri(url));
+};
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $elm$svg$Svg$Attributes$target = _VirtualDom_attribute('target');
 var $author$project$Page$footer = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
@@ -5544,7 +5554,30 @@ var $author$project$Page$footer = A2(
 		]),
 	_List_fromArray(
 		[
-			$elm$html$Html$text('A journey of a thousand miles begins with a single step')
+			A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$href('https://ko-fi.com/huyphung'),
+					$elm$svg$Svg$Attributes$target('_blank'),
+					A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+					A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
+					A2($elm$html$Html$Attributes$style, 'justify-content', 'center')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('https://i.imgur.com/PnPh5LY.png'),
+							A2($elm$html$Html$Attributes$style, 'width', '32px'),
+							A2($elm$html$Html$Attributes$style, 'height', '32px'),
+							A2($elm$html$Html$Attributes$style, 'margin-right', '8px')
+						]),
+					_List_Nil),
+					$elm$html$Html$text('buy me a coffee')
+				]))
 		]));
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$li = _VirtualDom_node('li');
@@ -8294,6 +8327,13 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 		a5: $elm$core$String$fromInt(val)
 	};
 };
+var $rtfeldman$elm_css$Css$justifyContent = function (fn) {
+	return A3(
+		$rtfeldman$elm_css$Css$Internal$getOverloadedProperty,
+		'justifyContent',
+		'justify-content',
+		fn($rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty));
+};
 var $author$project$Styles$ldBgColor = 'FFCE45';
 var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
@@ -9146,6 +9186,9 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$displayFlex,
 							$rtfeldman$elm_css$Css$alignSelf($rtfeldman$elm_css$Css$flexEnd),
 							$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
+							$rtfeldman$elm_css$Css$justifyContent($rtfeldman$elm_css$Css$center),
+							$rtfeldman$elm_css$Css$padding(
+							$rtfeldman$elm_css$Css$px(12)),
 							A3(
 							$rtfeldman$elm_css$Css$borderTop3,
 							$rtfeldman$elm_css$Css$px(2),
@@ -9180,6 +9223,8 @@ var $author$project$Styles$styles = function () {
 									$rtfeldman$elm_css$Css$px(80)),
 									$rtfeldman$elm_css$Css$display($rtfeldman$elm_css$Css$inlineBlock),
 									$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center),
+									$rtfeldman$elm_css$Css$padding(
+									$rtfeldman$elm_css$Css$px(0)),
 									$rtfeldman$elm_css$Css$Global$descendants(
 									_List_fromArray(
 										[

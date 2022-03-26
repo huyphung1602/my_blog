@@ -103,7 +103,13 @@ header =
 footer : Html Never
 footer =
     div [ Attr.class "footer" ]
-        [ text "A journey of a thousand miles begins with a single step"
+        [ a [ href "https://ko-fi.com/huyphung"
+            , target "_blank", Attr.style "display" "flex"
+            , Attr.style "align-items" "center"
+            , Attr.style "justify-content" "center"
+            ]
+            [ img [src "https://i.imgur.com/PnPh5LY.png", Attr.style "width" "32px", Attr.style "height" "32px", Attr.style "margin-right" "8px"] []
+            , text "buy me a coffee" ]
         ]
         -- [ div [ Attr.class "link" ]
         --     [ githubIcon

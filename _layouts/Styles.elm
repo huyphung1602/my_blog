@@ -108,6 +108,8 @@ styles =
             [ displayFlex
             , alignSelf flexEnd
             , textAlign center
+            , justifyContent center
+            , padding <| px 12
             , borderTop3 (px 2) solid (hex dBgColor)
             , backgroundColor <| hex ldBgColor
             , Css.color <| hex dBgColor
@@ -119,6 +121,7 @@ styles =
                 [ lineHeight <| px 80
                 , display inlineBlock
                 , textAlign center
+                , padding <| px 0
                 , descendants
                     [ class "link"
                         [ display inlineBlock
