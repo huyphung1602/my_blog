@@ -1,0 +1,244 @@
+<!doctype html><html><head><title>Reading Note: The Elm Architecture | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: The Elm Architecture</h1><div class="post-metadata"><span>2022-03-28</span><span>•</span><a href="/tags/software">software</a><a href="/tags/functional">functional</a><a href="/tags/elm">elm</a><a href="/tags/frontend">frontend</a></div><div attr.class="markdown"><p>One of the things I love about Elm is its architecture. It is simple and powerful. The Elm Architecture gives you a solid way for handling the state of your application.</p>
+<p>The basic structure of an Elm application looks like this:</p>
+<p><img src="https://svgur.com/i/fhy.svg" alt="elm-architecture"></p>
+<h2 id="model">Model</h2>
+<p>I already have a blog post related to Elm Model in this post <a href="https://huyphung.one/posts/2022-03-27-model-and-record-in-elm/">Model and Record in Elm</a></p>
+<p>In short, model <strong>contains all of your application states</strong>. Typically, a model is a record data type.</p>
+<h2 id="view">View</h2>
+<ul>
+<li>View is responsible for displaying a model.</li>
+<li>The Elm Architecture enforces separation of concerns by preventing the view layer from storing state. So, in view, we use one or many stateless functions.</li>
+<li>The view is the visualization of the model and nothing more.</li>
+<li>View can describe:<ul>
+<li>Html elements.</li>
+<li>Html attributes.</li>
+<li>Events such as mouse clicks, keyboard inputs.</li>
+</ul>
+</li>
+</ul>
+<h2 id="update">Update</h2>
+<p>All states are located in the model, all changes to the model have to take place in the <code>update</code> function.</p>
+<p>The <code>update</code> function takes two arguments:</p>
+<ul>
+<li>A <code>message</code>. The message works the same as an instruction. The <code>update</code> function needs to interpret the message to determine how to create a new state.</li>
+<li>The <code>model</code></li>
+</ul>
+<p>The <code>update</code> function is responsible for interpreting the message to change the state. The data types in Elm are <strong>immutable</strong>. So, the <code>update</code> function must return a new instance of the model with the changed state.</p>
+<h2 id="runtime">Runtime</h2>
+<ul>
+<li>The program contains the <strong>runtime</strong>.</li>
+<li>The <code>main</code> function is a program that gets initialized with <code>model</code>, <code>view</code>, and <code>update</code>.</li>
+<li>The program executes a continuous loop, taking in actions from the user, changing the state, and representing the changes in the view.</li>
+<li>The runtime also handles all the <strong>effects</strong> that your application produces or reacts to. Examples of effects:<ul>
+<li>Loading or Sending data via AJAX.</li>
+<li>Writing to the local storage.</li>
+<li>Websocket communication.</li>
+</ul>
+</li>
+</ul>
+<p>I wrote a post related to <a href="https://huyphung.one/posts/2022-03-26-virtual-dom-in-elm/">Virtual DOM in Elm</a>. This post mentions the model, view, update, and runtime interaction.</p>
+<h2 id="some-personal-thoughts">Some personal thoughts</h2>
+<p>There are a lot of reasons to love Elm Architecture. For me:</p>
+<ul>
+<li>It is easy to understand.</li>
+<li>The update function must return a new instance when changing state. We can have a time travel debugger. You can check it here: <a href="https://package.elm-lang.org/packages/savardd/elm-time-travel/latest/">elm-time-travel</a>.</li>
+<li>It is easy to read other codes because the basic structure of every Elm application is the same.</li>
+</ul>
+<p>One of my big dislikes is that I am hard to integrate other UI stuff into my application. Maybe I will have a more detailed post related to this issue later.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://pragprog.com/titles/jfelm/programming-elm/">Programming Elm</a></li>
+<li><a href="https://dennisreimann.de/articles/elm-architecture-overview.html">https://dennisreimann.de/articles/elm-architecture-overview.html</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:JetBrains Mono, monospace, Open Sans, Arial, sans-serif;
+    font-size:2em;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:2px;
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:JetBrains Mono, monospace, Proza Libre, Helvetica, sans-serif;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>
