@@ -5456,11 +5456,11 @@ var $author$project$Elmstatic$htmlTemplate = F2(
 									A2($elm$html$Html$Attributes$attribute, 'user-scalable', 'no')
 								]),
 							_List_Nil),
-							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js'),
-							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js'),
+							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js'),
+							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js'),
 							$author$project$Elmstatic$inlineScript('hljs.initHighlightingOnLoad();'),
-							$author$project$Elmstatic$stylesheet('//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css'),
-							$author$project$Elmstatic$stylesheet('//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata')
+							$author$project$Elmstatic$stylesheet('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css'),
+							$author$project$Elmstatic$stylesheet('//fonts.googleapis.com/css?family=JetBrains+Mono|Open+Sans|Proza+Libre|Inconsolata')
 						])),
 					A3($elm$html$Html$node, 'body', _List_Nil, contentNodes)
 				]));
@@ -8339,6 +8339,18 @@ var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$Global$li = $rtfeldman$elm_css$Css$Global$typeSelector('li');
 var $rtfeldman$elm_css$Css$lineHeight = $rtfeldman$elm_css$Css$prop1('line-height');
 var $rtfeldman$elm_css$Css$margin = $rtfeldman$elm_css$Css$prop1('margin');
+var $rtfeldman$elm_css$Css$prop2 = F3(
+	function (key, argA, argB) {
+		return A2(
+			$rtfeldman$elm_css$Css$property,
+			key,
+			A2(
+				$elm$core$String$join,
+				' ',
+				_List_fromArray(
+					[argA.a5, argB.a5])));
+	});
+var $rtfeldman$elm_css$Css$margin2 = $rtfeldman$elm_css$Css$prop2('margin');
 var $rtfeldman$elm_css$Css$margin3 = $rtfeldman$elm_css$Css$prop3('margin');
 var $rtfeldman$elm_css$Css$marginBottom = $rtfeldman$elm_css$Css$prop1('margin-bottom');
 var $rtfeldman$elm_css$Css$marginRight = $rtfeldman$elm_css$Css$prop1('margin-right');
@@ -9142,6 +9154,10 @@ var $author$project$Styles$styles = function () {
 						[
 							$rtfeldman$elm_css$Css$maxWidth(
 							$rtfeldman$elm_css$Css$vw(100)),
+							A2(
+							$rtfeldman$elm_css$Css$margin2,
+							$rtfeldman$elm_css$Css$rem(4),
+							$rtfeldman$elm_css$Css$rem(0)),
 							$rtfeldman$elm_css$Css$Global$descendants(
 							_List_fromArray(
 								[

@@ -142,11 +142,11 @@ htmlTemplate title contentNodes =
             , node "link" [ attribute "href" "https://i.imgur.com/TvSmXhH.png", attribute "rel" "icon", attribute "type" "image/x-icon" ] []
             , node "meta" [ attribute "charset" "utf-8" ] []
             , node "meta" [ name "viewport", attribute "width" "device-width", attribute  "initial-scale" "1", attribute "maximum-scale" "1", attribute "user-scalable" "no" ] []
-            , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/highlight.min.js"
-            , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/languages/elm.min.js"
+            , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"
+            , script "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"
             , inlineScript "hljs.initHighlightingOnLoad();"
-            , stylesheet "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.1/styles/default.min.css"
-            , stylesheet "//fonts.googleapis.com/css?family=Open+Sans|Proza+Libre|Inconsolata"
+            , stylesheet "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css"
+            , stylesheet "//fonts.googleapis.com/css?family=JetBrains+Mono|Open+Sans|Proza+Libre|Inconsolata"
             ]
         , node "body" [] contentNodes
         ]

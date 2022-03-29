@@ -86,6 +86,7 @@ styles =
             ]
         , class "content"
             [ Css.maxWidth <| vw 100
+            , margin2  (rem 4) (rem 0)
             , descendants
                 [ p [ descendants 
                         [
