@@ -8379,6 +8379,7 @@ var $rtfeldman$elm_css$Css$overflowWrap = $rtfeldman$elm_css$Css$prop1('overflow
 var $rtfeldman$elm_css$Css$overflowX = $rtfeldman$elm_css$Css$prop1('overflow-x');
 var $rtfeldman$elm_css$Css$Global$p = $rtfeldman$elm_css$Css$Global$typeSelector('p');
 var $rtfeldman$elm_css$Css$padding = $rtfeldman$elm_css$Css$prop1('padding');
+var $rtfeldman$elm_css$Css$padding2 = $rtfeldman$elm_css$Css$prop2('padding');
 var $rtfeldman$elm_css$Css$paddingLeft = $rtfeldman$elm_css$Css$prop1('padding-left');
 var $rtfeldman$elm_css$Css$paddingRight = $rtfeldman$elm_css$Css$prop1('padding-right');
 var $rtfeldman$elm_css$Css$paddingTop = $rtfeldman$elm_css$Css$prop1('padding-top');
@@ -8923,7 +8924,9 @@ var $author$project$Styles$styles = function () {
 			$rtfeldman$elm_css$Css$hex('ed143d')),
 			$rtfeldman$elm_css$Css$backgroundColor(
 			$rtfeldman$elm_css$Css$hex('f0f0f0')),
-			$rtfeldman$elm_css$Css$padding(
+			A2(
+			$rtfeldman$elm_css$Css$padding2,
+			$rtfeldman$elm_css$Css$px(1),
 			$rtfeldman$elm_css$Css$px(2))
 		]);
 	return $rtfeldman$elm_css$Html$Styled$toUnstyled(

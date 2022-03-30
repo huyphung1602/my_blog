@@ -1,0 +1,211 @@
+<!doctype html><html><head><title>Reading Note: Pixel and Rem | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Open+Sans|Proza+Libre|Inconsolata" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: Pixel and Rem</h1><div class="post-metadata"><span>2022-03-30</span><span>•</span><a href="/tags/software">software</a><a href="/tags/css">css</a><a href="/tags/frontend">frontend</a></div><div attr.class="markdown"><p>When working with the CSS stuff, I want to understand <strong>Pixel</strong> and <strong>Rem</strong>. So, I try to dig deeper into these two.</p>
+<p><strong>Em</strong> is a more complicated topic (including the media queries). I determine to mention it later. (after I comprehend it)</p>
+<h2 id="pixel">Pixel</h2>
+<p>Pixel is an absolute length.</p>
+<p>Pixel does not mean the literal screen pixels in the display you are looking at. It’s <a href="http://inamidst.com/stuff/notes/csspx">an angular measurement</a>. So, the size of a pixel isn’t always the same on different displays.</p>
+<p>Pixel is easy to transfer from the design to the web design because the Designers typically work in pixels.</p>
+<p>If you are setting all of your font-sizes, element sizes, and spacing in pixels, <strong>you are not treating the end-user with respect</strong>.</p>
+<p>The reason is the default browser font-size could be different from the default font-size of your application (typically 16px). If the user sets the default font-size to 20px, all font sizes should scale accordingly.</p>
+<h2 id="rem">Rem</h2>
+<p>Rem is a font-relative length.</p>
+<p>Rem is a way of setting font-sizes based on the font-size of the root HTML element. Rem allows you to quickly scale an entire project by changing the root font-size.</p>
+<p>Calculating <code>px</code> from <code>rem</code>. For example, the html font-size is set to 10px, paragraph is set to 1.6rem. It means the paragragh font-size would be: <code>1.6rem * 10px = 16px</code>.</p>
+<p>However, setting the base font-size in pixels still has the same problem as using the pixel. So, the solution is <strong>setting the root HTML font-size as a percentage.</strong> The ideal scenario would be to leave the HTML font-size at 100% (it means the HTML font-size will be equal to the default browser font-size).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://engageinteractive.co.uk/blog/em-vs-rem-vs-px">https://engageinteractive.co.uk/blog/em-vs-rem-vs-px</a></li>
+<li><a href="https://css-tricks.com/the-lengths-of-css/">https://css-tricks.com/the-lengths-of-css/</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:JetBrains Mono, monospace, Open Sans, Arial, sans-serif;
+    font-size:2em;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:JetBrains Mono, monospace, Proza Libre, Helvetica, sans-serif;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>

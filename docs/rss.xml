@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Tue, 29 Mar 2022 18:10:26 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 30 Mar 2022 20:29:55 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -154,6 +154,23 @@ end
 Try to write this code in your rails console. You will see that this code creates both "Hisoka" and "Gon" (you will know who they are after you read Hunter × Hunter).
 
 The reason is...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Pixel and Rem]]></title>
+            <link>/2022-03-30-pixel-and-rem</link>
+            <guid>/2022-03-30-pixel-and-rem</guid>
+            <pubDate>Wed, 30 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[When working with the CSS stuff, I want to understand Pixel and Rem. So, I try to dig deeper into these two.
+
+Em is a more complicated topic (including the media queries). I determine to mention it later. (after I comprehend it)
+
+Pixel
+
+Pixel is an absolute length.
+
+Pixel does not mean the literal screen pixels in the display you are looking at. It's an angular measurement. So, the size of a pixel isn't always the same on different displays.
+
+Pixel is easy to transfer from the design to the web ...]]></description>
         </item>
     </channel>
 </rss>

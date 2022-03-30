@@ -18,7 +18,7 @@ styles =
                 [ "JetBrains Mono, monospace", .value monospace]
             , Css.color <| hex "ed143d"
             , backgroundColor <| hex "f0f0f0"
-            , padding <| px 2
+            , padding2 (px 1) (px 2)
             ]
     in
     global
