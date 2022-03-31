@@ -2,4 +2,4 @@
 title: "Contact"
 ---
 
-Currently, I cannot share my contact. Please come back later I will have a quiz for you.
+You can contact me via my [LinkedIn Profile](https://www.linkedin.com/in/quoc-huy-phung-nguyen-251918a9/)
