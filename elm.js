@@ -8931,7 +8931,15 @@ var $author$project$Styles$styles = function () {
 			$rtfeldman$elm_css$Css$px(1),
 			$rtfeldman$elm_css$Css$px(2)),
 			$rtfeldman$elm_css$Css$lineHeight(
-			$rtfeldman$elm_css$Css$em(1.4))
+			$rtfeldman$elm_css$Css$em(1.4)),
+			wideScreen(
+			_List_fromArray(
+				[
+					$rtfeldman$elm_css$Css$fontSize(
+					$rtfeldman$elm_css$Css$em(0.9)),
+					$rtfeldman$elm_css$Css$lineHeight(
+					$rtfeldman$elm_css$Css$em(1.2))
+				]))
 		]);
 	return $rtfeldman$elm_css$Html$Styled$toUnstyled(
 		$rtfeldman$elm_css$Css$Global$global(
@@ -8959,9 +8967,9 @@ var $author$project$Styles$styles = function () {
 							_List_fromArray(
 								[
 									$rtfeldman$elm_css$Css$fontSize(
-									$rtfeldman$elm_css$Css$em(1)),
+									$rtfeldman$elm_css$Css$em(1.2)),
 									$rtfeldman$elm_css$Css$lineHeight(
-									$rtfeldman$elm_css$Css$em(1.8))
+									$rtfeldman$elm_css$Css$em(1.6))
 								]))
 						])),
 					$rtfeldman$elm_css$Css$Global$a(

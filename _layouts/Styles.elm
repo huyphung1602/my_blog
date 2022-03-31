@@ -20,6 +20,10 @@ styles =
             , backgroundColor <| hex "f0f0f0"
             , padding2 (px 1) (px 2)
             , lineHeight <| Css.em 1.4
+            , wideScreen 
+                [ fontSize <| Css.em 0.9
+                , lineHeight <| Css.em 1.2
+                ]
             ]
     in
     global
@@ -32,8 +36,8 @@ styles =
             , fontSize <| Css.em 2
             , lineHeight <| Css.em 1.6
             , wideScreen 
-                [ fontSize <| Css.em 1
-                , lineHeight <| Css.em 1.8
+                [ fontSize <| Css.em 1.2
+                , lineHeight <| Css.em 1.6
                 ]
             ]
         , a
