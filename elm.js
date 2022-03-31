@@ -519,11 +519,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.a2.av === region.bl.av)
+	if (region.a3.av === region.bl.av)
 	{
-		return 'on line ' + region.a2.av;
+		return 'on line ' + region.a3.av;
 	}
-	return 'on lines ' + region.a2.av + ' through ' + region.bl.av;
+	return 'on lines ' + region.a3.av + ' through ' + region.bl.av;
 }
 
 
@@ -2705,8 +2705,8 @@ var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
 		F: func(record.F),
-		a3: record.a3,
-		a0: record.a0
+		a4: record.a4,
+		a1: record.a1
 	}
 });
 
@@ -2975,10 +2975,10 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 
 		var value = result.a;
 		var message = !tag ? value : tag < 3 ? value.a : value.F;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.a3;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.a4;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.a0) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.a1) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -3968,7 +3968,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.ct,
 		impl.cq,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.a1 && impl.a1(sendToApp)
+			var divertHrefToApp = impl.a2 && impl.a2(sendToApp)
 			var view = impl.cv;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -3977,7 +3977,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aU);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aV);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
@@ -4043,7 +4043,7 @@ function _Browser_application(impl)
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		a1: function(sendToApp)
+		a2: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -5488,7 +5488,7 @@ var $author$project$Elmstatic$layout = F2(
 					if (_v1.$ === 1) {
 						var error = _v1.a;
 						return {
-							aU: _List_fromArray(
+							aV: _List_fromArray(
 								[
 									A2(
 									$elm$html$Html$div,
@@ -5509,7 +5509,7 @@ var $author$project$Elmstatic$layout = F2(
 						if (_v2.$ === 1) {
 							var viewError = _v2.a;
 							return {
-								aU: _List_fromArray(
+								aV: _List_fromArray(
 									[
 										A2(
 										$elm$html$Html$div,
@@ -5524,7 +5524,7 @@ var $author$project$Elmstatic$layout = F2(
 						} else {
 							var viewHtml = _v2.a;
 							return {
-								aU: _List_fromArray(
+								aV: _List_fromArray(
 									[
 										A2($author$project$Elmstatic$htmlTemplate, content.aQ, viewHtml)
 									]),
@@ -5858,7 +5858,7 @@ var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 			aj: 0,
 			am: unitLabel,
 			aC: units,
-			a5: _Utils_ap(
+			aT: _Utils_ap(
 				$elm$core$String$fromFloat(numericValue),
 				unitLabel)
 		};
@@ -5871,17 +5871,17 @@ var $rtfeldman$elm_css$Css$alignSelf = function (fn) {
 		'align-self',
 		fn($rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty));
 };
-var $rtfeldman$elm_css$Css$auto = {bX: 0, a: 0, Z: 0, aI: 0, cc: 0, ac: 0, E: 0, x: 0, af: 0, u: 0, aR: 0, ak: 0, q: 0, a5: 'auto'};
+var $rtfeldman$elm_css$Css$auto = {bX: 0, a: 0, Z: 0, aI: 0, cc: 0, ac: 0, E: 0, x: 0, af: 0, u: 0, aR: 0, ak: 0, q: 0, aT: 'auto'};
 var $rtfeldman$elm_css$Css$property = F2(
 	function (key, value) {
 		return $rtfeldman$elm_css$Css$Preprocess$AppendProperty(key + (':' + value));
 	});
 var $rtfeldman$elm_css$Css$backgroundColor = function (c) {
-	return A2($rtfeldman$elm_css$Css$property, 'background-color', c.a5);
+	return A2($rtfeldman$elm_css$Css$property, 'background-color', c.aT);
 };
 var $rtfeldman$elm_css$Css$prop1 = F2(
 	function (key, arg) {
-		return A2($rtfeldman$elm_css$Css$property, key, arg.a5);
+		return A2($rtfeldman$elm_css$Css$property, key, arg.aT);
 	});
 var $rtfeldman$elm_css$Css$baseline = $rtfeldman$elm_css$Css$prop1('baseline');
 var $rtfeldman$elm_css$Css$Global$body = $rtfeldman$elm_css$Css$Global$typeSelector('body');
@@ -5894,13 +5894,13 @@ var $rtfeldman$elm_css$Css$prop3 = F4(
 				$elm$core$String$join,
 				' ',
 				_List_fromArray(
-					[argA.a5, argB.a5, argC.a5])));
+					[argA.aT, argB.aT, argC.aT])));
 	});
 var $rtfeldman$elm_css$Css$border3 = $rtfeldman$elm_css$Css$prop3('border');
 var $rtfeldman$elm_css$Css$borderBottom3 = $rtfeldman$elm_css$Css$prop3('border-bottom');
 var $rtfeldman$elm_css$Css$borderRadius = $rtfeldman$elm_css$Css$prop1('border-radius');
 var $rtfeldman$elm_css$Css$borderTop3 = $rtfeldman$elm_css$Css$prop3('border-top');
-var $rtfeldman$elm_css$Css$breakWord = {a$: 0, a5: 'break-word'};
+var $rtfeldman$elm_css$Css$breakWord = {a0: 0, aT: 'break-word'};
 var $rtfeldman$elm_css$Css$center = $rtfeldman$elm_css$Css$prop1('center');
 var $rtfeldman$elm_css$Css$Structure$ClassSelector = function (a) {
 	return {$: 0, a: a};
@@ -5930,7 +5930,7 @@ var $rtfeldman$elm_css$Css$Global$class = F2(
 	});
 var $rtfeldman$elm_css$Css$Global$code = $rtfeldman$elm_css$Css$Global$typeSelector('code');
 var $rtfeldman$elm_css$Css$color = function (c) {
-	return A2($rtfeldman$elm_css$Css$property, 'color', c.a5);
+	return A2($rtfeldman$elm_css$Css$property, 'color', c.aT);
 };
 var $rtfeldman$elm_css$Css$Structure$Descendant = 3;
 var $rtfeldman$elm_css$Css$Preprocess$NestSnippet = F2(
@@ -6109,8 +6109,8 @@ var $elm$core$Basics$composeL = F3(
 			f(x));
 	});
 var $rtfeldman$elm_css$Css$stringsToValue = function (list) {
-	return $elm$core$List$isEmpty(list) ? {a5: 'none'} : {
-		a5: A2(
+	return $elm$core$List$isEmpty(list) ? {aT: 'none'} : {
+		aT: A2(
 			$elm$core$String$join,
 			', ',
 			A2(
@@ -6127,7 +6127,7 @@ var $rtfeldman$elm_css$Css$fontFamilies = A2(
 	$rtfeldman$elm_css$Css$stringsToValue);
 var $rtfeldman$elm_css$Css$fontSize = $rtfeldman$elm_css$Css$prop1('font-size');
 var $rtfeldman$elm_css$Css$fontWeight = function (_v0) {
-	var value = _v0.a5;
+	var value = _v0.aT;
 	return A2($rtfeldman$elm_css$Css$property, 'font-weight', value);
 };
 var $elm$core$List$any = F2(
@@ -6411,7 +6411,7 @@ var $rtfeldman$elm_css$Css$Structure$Output$mediaExpressionToString = function (
 		A2(
 			$elm$core$Maybe$map,
 			$elm$core$Basics$append(': '),
-			expression.a5)) + ')'));
+			expression.aT)) + ')'));
 };
 var $rtfeldman$elm_css$Css$Structure$Output$mediaTypeToString = function (mediaType) {
 	switch (mediaType) {
@@ -7887,7 +7887,7 @@ var $rtfeldman$elm_css$Css$erroneousHex = function (str) {
 		w: 0,
 		at: 0,
 		ay: 0,
-		a5: $rtfeldman$elm_css$Css$withPrecedingHash(str)
+		aT: $rtfeldman$elm_css$Css$withPrecedingHash(str)
 	};
 };
 var $elm$core$String$foldr = _String_foldr;
@@ -8146,7 +8146,7 @@ var $rtfeldman$elm_css$Css$validHex = F5(
 				w: 0,
 				at: green,
 				ay: red,
-				a5: $rtfeldman$elm_css$Css$withPrecedingHash(str)
+				aT: $rtfeldman$elm_css$Css$withPrecedingHash(str)
 			};
 		} else {
 			return $rtfeldman$elm_css$Css$erroneousHex(str);
@@ -8311,7 +8311,7 @@ var $rtfeldman$elm_css$Css$Preprocess$mapProperties = F2(
 		}
 	});
 var $rtfeldman$elm_css$Css$important = $rtfeldman$elm_css$Css$Preprocess$mapProperties($rtfeldman$elm_css$Css$makeImportant);
-var $rtfeldman$elm_css$Css$inlineBlock = {f: 0, a5: 'inline-block'};
+var $rtfeldman$elm_css$Css$inlineBlock = {f: 0, aT: 'inline-block'};
 var $rtfeldman$elm_css$Css$UnitlessInteger = 0;
 var $rtfeldman$elm_css$Css$int = function (val) {
 	return {
@@ -8324,7 +8324,7 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 		G: val,
 		am: '',
 		aC: 0,
-		a5: $elm$core$String$fromInt(val)
+		aT: $elm$core$String$fromInt(val)
 	};
 };
 var $rtfeldman$elm_css$Css$justifyContent = function (fn) {
@@ -8348,7 +8348,7 @@ var $rtfeldman$elm_css$Css$prop2 = F3(
 				$elm$core$String$join,
 				' ',
 				_List_fromArray(
-					[argA.a5, argB.a5])));
+					[argA.aT, argB.aT])));
 	});
 var $rtfeldman$elm_css$Css$margin2 = $rtfeldman$elm_css$Css$prop2('margin');
 var $rtfeldman$elm_css$Css$margin3 = $rtfeldman$elm_css$Css$prop3('margin');
@@ -8359,17 +8359,17 @@ var $rtfeldman$elm_css$Css$maxWidth = $rtfeldman$elm_css$Css$prop1('max-width');
 var $author$project$Styles$mdBgColor = 'E7E6E1';
 var $rtfeldman$elm_css$Css$Media$feature = F2(
 	function (key, _v0) {
-		var value = _v0.a5;
+		var value = _v0.aT;
 		return {
 			bn: key,
-			a5: $elm$core$Maybe$Just(value)
+			aT: $elm$core$Maybe$Just(value)
 		};
 	});
 var $rtfeldman$elm_css$Css$Media$minWidth = function (value) {
 	return A2($rtfeldman$elm_css$Css$Media$feature, 'min-width', value);
 };
-var $rtfeldman$elm_css$Css$monospace = {K: 0, a5: 'monospace'};
-var $rtfeldman$elm_css$Css$none = {U: 0, bd: 0, n: 0, a: 0, f: 0, b9: 0, bu: 0, aX: 0, ae: 0, M: 0, x: 0, c: 0, b: 0, aZ: 0, aM: 0, cj: 0, u: 0, aN: 0, cn: 0, ai: 0, S: 0, q: 0, e: 0, cu: 0, a5: 'none'};
+var $rtfeldman$elm_css$Css$monospace = {K: 0, aT: 'monospace'};
+var $rtfeldman$elm_css$Css$none = {U: 0, bd: 0, n: 0, a: 0, f: 0, b9: 0, bu: 0, aY: 0, ae: 0, M: 0, x: 0, c: 0, b: 0, a_: 0, aM: 0, cj: 0, u: 0, aN: 0, cn: 0, ai: 0, S: 0, q: 0, e: 0, cu: 0, aT: 'none'};
 var $rtfeldman$elm_css$Css$Structure$OnlyQuery = F2(
 	function (a, b) {
 		return {$: 1, a: a, b: b};
@@ -8393,10 +8393,10 @@ var $rtfeldman$elm_css$Css$rem = A2($rtfeldman$elm_css$Css$Internal$lengthConver
 var $rtfeldman$elm_css$Css$right = $rtfeldman$elm_css$Css$prop1('right');
 var $rtfeldman$elm_css$Css$Structure$Screen = 1;
 var $rtfeldman$elm_css$Css$Media$screen = 1;
-var $rtfeldman$elm_css$Css$scroll = {aq: 0, bd: 0, bu: 0, af: 0, co: 0, a5: 'scroll'};
-var $rtfeldman$elm_css$Css$serif = {K: 0, a5: 'serif'};
+var $rtfeldman$elm_css$Css$scroll = {aq: 0, bd: 0, bu: 0, af: 0, co: 0, aT: 'scroll'};
+var $rtfeldman$elm_css$Css$serif = {K: 0, aT: 'serif'};
 var $rtfeldman$elm_css$Css$Global$small = $rtfeldman$elm_css$Css$Global$typeSelector('small');
-var $rtfeldman$elm_css$Css$solid = {n: 0, R: 0, a5: 'solid'};
+var $rtfeldman$elm_css$Css$solid = {n: 0, R: 0, aT: 'solid'};
 var $rtfeldman$elm_css$Css$Global$span = $rtfeldman$elm_css$Css$Global$typeSelector('span');
 var $rtfeldman$elm_css$Css$Global$svg = $rtfeldman$elm_css$Css$Global$typeSelector('svg');
 var $rtfeldman$elm_css$Css$textAlign = function (fn) {
@@ -8882,7 +8882,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$toUnstyled = function (vdom) {
 };
 var $rtfeldman$elm_css$Html$Styled$toUnstyled = $rtfeldman$elm_css$VirtualDom$Styled$toUnstyled;
 var $rtfeldman$elm_css$Css$Global$ul = $rtfeldman$elm_css$Css$Global$typeSelector('ul');
-var $rtfeldman$elm_css$Css$underline = {ai: 0, a5: 'underline'};
+var $rtfeldman$elm_css$Css$underline = {ai: 0, aT: 'underline'};
 var $rtfeldman$elm_css$Css$verticalAlign = function (fn) {
 	return A3(
 		$rtfeldman$elm_css$Css$Internal$getOverloadedProperty,
@@ -8917,7 +8917,7 @@ var $author$project$Styles$styles = function () {
 				[
 					'JetBrains Mono, monospace',
 					function ($) {
-					return $.a5;
+					return $.aT;
 				}($rtfeldman$elm_css$Css$monospace)
 				])),
 			$rtfeldman$elm_css$Css$color(
@@ -8955,7 +8955,7 @@ var $author$project$Styles$styles = function () {
 									'Times New Roman',
 									'Times',
 									function ($) {
-									return $.a5;
+									return $.aT;
 								}($rtfeldman$elm_css$Css$serif)
 								])),
 							$rtfeldman$elm_css$Css$fontSize(
@@ -9008,7 +9008,7 @@ var $author$project$Styles$styles = function () {
 									'Times New Roman',
 									'Times',
 									function ($) {
-									return $.a5;
+									return $.aT;
 								}($rtfeldman$elm_css$Css$serif)
 								])),
 							$rtfeldman$elm_css$Css$lineHeight(
@@ -9276,6 +9276,14 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$em(-0.5)),
 							$rtfeldman$elm_css$Css$marginBottom(
 							$rtfeldman$elm_css$Css$em(2.0)),
+							$rtfeldman$elm_css$Css$fontFamilies(
+							_List_fromArray(
+								[
+									'JetBrains Mono, monospace',
+									function ($) {
+									return $.aT;
+								}($rtfeldman$elm_css$Css$monospace)
+								])),
 							$rtfeldman$elm_css$Css$Global$descendants(
 							_List_fromArray(
 								[

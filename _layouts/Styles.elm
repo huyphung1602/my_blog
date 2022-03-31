@@ -15,7 +15,7 @@ styles =
 
         codeStyle =
             [ fontFamilies
-                [ "JetBrains Mono, monospace", .value monospace]
+                [ "JetBrains Mono, monospace", .value monospace ]
             , Css.color <| hex "ed143d"
             , backgroundColor <| hex "f0f0f0"
             , padding2 (px 1) (px 2)
@@ -138,6 +138,8 @@ styles =
         , class "post-metadata"
             [ marginTop <| Css.em -0.5
             , marginBottom <| Css.em 2.0
+            , fontFamilies
+                [ "JetBrains Mono, monospace", .value monospace ]
             , descendants
                 [ each [ a, span ]
                     [ display inlineBlock
