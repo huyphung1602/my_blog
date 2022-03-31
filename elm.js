@@ -5392,6 +5392,8 @@ var $author$project$Elmstatic$script = function (src) {
 			]),
 		_List_Nil);
 };
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $author$project$Elmstatic$stylesheet = function (href) {
 	return A3(
 		$elm$html$Html$node,
@@ -5409,7 +5411,10 @@ var $author$project$Elmstatic$htmlTemplate = F2(
 		return A3(
 			$elm$html$Html$node,
 			'html',
-			_List_Nil,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'font-size', '100%')
+				]),
 			_List_fromArray(
 				[
 					A3(
@@ -5543,8 +5548,6 @@ var $elm$html$Html$Attributes$src = function (url) {
 		'src',
 		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $elm$svg$Svg$Attributes$target = _VirtualDom_attribute('target');
 var $author$project$Page$footer = A2(
 	$elm$html$Html$div,
