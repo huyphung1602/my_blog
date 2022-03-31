@@ -28,7 +28,7 @@ styles =
             , margin <| px 0
             , backgroundColor <| hex mdBgColor
             , Css.color <| hex dBgColor
-            , fontFamilies [ "Libre Baskerville", "Georgia", "Cambria", "Times New Roman", "Times", .value serif ]
+            , fontFamilies [ "Libre Baskerville", "Georgia", "Cambria", "Times New Roman", "Times" ]
             , fontSize <| Css.em 2
             , lineHeight <| Css.em 1.6
             , wideScreen 
@@ -47,7 +47,7 @@ styles =
             ]
         , each [ h1, h2, h3, h4, h5, h6 ]
             -- [ fontFamilies [ "Proza Libre", "Helvetica", .value sansSerif ]
-            [ fontFamilies [ "Libre Baskerville", "Georgia", "Cambria", "Times New Roman", "Times", .value serif ]
+            [ fontFamilies [ "Libre Baskerville", "Georgia", "Cambria", "Times New Roman", "Times" ]
             , lineHeight <| Css.em 1.1
             , Css.color <| hex dBgColor
             ]
