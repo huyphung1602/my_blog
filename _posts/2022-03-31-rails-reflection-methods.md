@@ -14,7 +14,7 @@ end
 
 So, if you try to destroy a `Category` record that contains 2 books and 1 post `category_1.destroy!`. You will fail to destroy it because there are dependencies.
 
-Now, you have to implement a feature that **disables the delete button on the UI if a user could not be destroyed** instead of showing the error when the end-user tries to delete the items.
+Now, you have to implement a feature that **disables the delete button on the UI if a category could not be destroyed** instead of showing the error when the end-user tries to delete the items.
 
 In an easy way, you can do this:
 
@@ -37,7 +37,7 @@ class Category < ApplicationRecord
   has_one :metadata_file, dependent: :restrict_with_error
 
   def destroyable?
-    !(self.books.any? || self.posts.any? || self.inventory.any?)
+    !(self.books.any? || self.posts.any? || self.metadata_file.any?)
   end
 end
 ```

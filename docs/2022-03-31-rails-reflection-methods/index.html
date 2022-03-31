@@ -5,7 +5,7 @@
 end
 </code></pre>
 <p>So, if you try to destroy a <code>Category</code> record that contains 2 books and 1 post <code>category_1.destroy!</code>. You will fail to destroy it because there are dependencies.</p>
-<p>Now, you have to implement a feature that <strong>disables the delete button on the UI if a user could not be destroyed</strong> instead of showing the error when the end-user tries to delete the items.</p>
+<p>Now, you have to implement a feature that <strong>disables the delete button on the UI if a category could not be destroyed</strong> instead of showing the error when the end-user tries to delete the items.</p>
 <p>In an easy way, you can do this:</p>
 <pre><code class="lang-ruby">class Category &lt; ApplicationRecord
   ...
@@ -22,7 +22,7 @@ end
   has_one :metadata_file, dependent: :restrict_with_error
 
   def destroyable?
-    !(self.books.any? || self.posts.any? || self.inventory.any?)
+    !(self.books.any? || self.posts.any? || self.metadata_file.any?)
   end
 end
 </code></pre>
