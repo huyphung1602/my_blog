@@ -19,6 +19,7 @@ styles =
             , Css.color <| hex "ed143d"
             , backgroundColor <| hex "f0f0f0"
             , padding2 (px 1) (px 2)
+            , lineHeight <| Css.em 1.4
             ]
     in
     global
@@ -27,10 +28,13 @@ styles =
             , margin <| px 0
             , backgroundColor <| hex mdBgColor
             , Css.color <| hex dBgColor
-            , fontFamilies [ "JetBrains Mono, monospace", "Open Sans", "Arial", .value sansSerif ]
+            , fontFamilies [ "Libre Baskerville", "Georgia", "Cambria", "Times New Roman", "Times", .value serif ]
             , fontSize <| Css.em 2
-            , lineHeight <| Css.em 1.4
-            , wideScreen [ fontSize <| Css.em 1 ]
+            , lineHeight <| Css.em 1.6
+            , wideScreen 
+                [ fontSize <| Css.em 1
+                , lineHeight <| Css.em 1.8
+                ]
             ]
         , a
             [ Css.color <| hex dBgColor
@@ -43,7 +47,7 @@ styles =
             ]
         , each [ h1, h2, h3, h4, h5, h6 ]
             -- [ fontFamilies [ "Proza Libre", "Helvetica", .value sansSerif ]
-            [ fontFamilies [ "JetBrains Mono, monospace", "Proza Libre", "Helvetica", .value sansSerif ]
+            [ fontFamilies [ "Libre Baskerville", "Georgia", "Cambria", "Times New Roman", "Times", .value serif ]
             , lineHeight <| Css.em 1.1
             , Css.color <| hex dBgColor
             ]

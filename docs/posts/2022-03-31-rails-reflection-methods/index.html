@@ -1,0 +1,279 @@
+<!doctype html><html><head><title>Rails Reflection Methods | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Rails Reflection Methods</h1><div class="post-metadata"><span>2022-03-31</span><span>•</span><a href="/tags/software">software</a><a href="/tags/rails">rails</a><a href="/tags/ruby">ruby</a><a href="/tags/backend">backend</a></div><div attr.class="markdown"><p>Imagine that you have a file system application to manage contents with a <code>Category</code> model</p>
+<pre><code class="lang-ruby">class Category &lt; ApplicationRecord
+  has_many :books, dependent: :restrict_with_error
+  has_many :posts, dependent: :restrict_with_exception
+end
+</code></pre>
+<p>So, if you try to destroy a <code>Category</code> record that contains 2 books and 1 post <code>category_1.destroy!</code>. You will fail to destroy it because there are dependencies.</p>
+<p>Now, you have to implement a feature that <strong>disables the delete button on the UI if a user could not be destroyed</strong> instead of showing the error when the end-user tries to delete the items.</p>
+<p>In an easy way, you can do this:</p>
+<pre><code class="lang-ruby">class Category &lt; ApplicationRecord
+  ...
+
+  def destroyable?
+    !(self.books.any? || self.posts.any?)
+  end
+end
+</code></pre>
+<p>However, when your application grows bigger and there are many more things that need to be restricted before destroying a category record. You have to update the <code>destroyable?</code> method above each time. For example:</p>
+<pre><code class="lang-ruby">class Category &lt; ApplicationRecord
+  has_many :books, dependent: :restrict_with_error
+  has_many :posts, dependent: :restrict_with_exception
+  has_one :metadata_file, dependent: :restrict_with_error
+
+  def destroyable?
+    !(self.books.any? || self.posts.any? || self.inventory.any?)
+  end
+end
+</code></pre>
+<p>Then, you introduce a Reference Model. This model represents the relationship when a post refers to a book.</p>
+<pre><code class="lang-ruby">class Post &lt; ApplicationRecord
+  has_many :reference_books, through: references, source: referenceable, source_type: Book, dependent: :restrict_with_error
+end
+</code></pre>
+<p>You also want to check if a Post is <code>destroyable?</code></p>
+<pre><code class="lang-ruby">class Post &lt; ApplicationRecord
+  ...
+
+  def destroyable?
+    !reference_books.any?
+  end
+end
+</code></pre>
+<p>The <code>destroyable?</code> is duplicated in these two models now. It is time to write something that is dynamic and you could not worry about updating these <code>destroyable?</code> methods.</p>
+<p>ActiveRecord provides <a href="http://api.rubyonrails.org/classes/ActiveRecord/Reflection/ClassMethods.html">reflection methods</a> for obtaining info on the associations. We will use the <code>reflect_on_all_associations</code> to iterate through model associations and check if the restriction list is empty or not.</p>
+<pre><code class="lang-ruby">module Destroyable
+  extend ActiveSupport::Concern
+
+  def destroyable?
+    self.class.reflect_on_all_associations.all? do |assoc|
+      [
+        %i[restrict_with_error restrict_with_exception].exclude?(assoc.options[:dependent]),
+        (assoc.macro == :has_one &amp;&amp; send(assoc.name).nil?),
+        (assoc.macro == :has_many &amp;&amp; send(assoc.name).empty?)
+      ].any?
+    end
+  end
+end
+</code></pre>
+<p>And now we could reuse it in our models.</p>
+<pre><code class="lang-ruby">class Category &lt; ApplicationRecord
+  ...
+
+  include Destroyable
+end
+
+class Post &lt; ApplicationRecord
+  ...
+
+  include Destroyable
+end
+</code></pre>
+<p>There are some notices from me when you use this one:</p>
+<ul>
+<li>You should have good unit tests on this destroyable? method to check if there is an issue related to the newer rails version.</li>
+<li>You also need to care about your application code loading strategy (check <a href="http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/">Eager loading for greater good</a>). It is better to add <code>Rails.application.eager_load!</code> at the first line of your <code>destroyable?</code> method.</li>
+</ul>
+<h2 id="in-short">In short</h2>
+<p>The <code>reflection methods</code> are useful in some specific cases. You should consider it carefully before applying it to your application. It is powerful if you use it right. It is dangerous if you overuse it.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://api.rubyonrails.org/classes/ActiveRecord/Reflection/ClassMethods.html">https://api.rubyonrails.org/classes/ActiveRecord/Reflection/ClassMethods.html</a></li>
+<li><a href="https://manas.tech/blog/2012/01/31/how-to-check-if-object-can-be-destroyed-if-it-has-dependent-destroy-associations/">https://manas.tech/blog/2012/01/31/how-to-check-if-object-can-be-destroyed-if-it-has-dependent-destroy-associations/</a></li>
+<li><a href="http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/">http://blog.plataformatec.com.br/2012/08/eager-loading-for-greater-good/</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times, serif;
+    font-size:2em;
+    line-height:1.6em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1em;
+    line-height:1.8em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+    line-height:1.4em;
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times, serif;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>

@@ -5460,7 +5460,7 @@ var $author$project$Elmstatic$htmlTemplate = F2(
 							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js'),
 							$author$project$Elmstatic$inlineScript('hljs.initHighlightingOnLoad();'),
 							$author$project$Elmstatic$stylesheet('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css'),
-							$author$project$Elmstatic$stylesheet('//fonts.googleapis.com/css?family=JetBrains+Mono|Open+Sans|Proza+Libre|Inconsolata')
+							$author$project$Elmstatic$stylesheet('//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times')
 						])),
 					A3($elm$html$Html$node, 'body', _List_Nil, contentNodes)
 				]));
@@ -8391,10 +8391,10 @@ var $rtfeldman$elm_css$Css$px = A2($rtfeldman$elm_css$Css$Internal$lengthConvert
 var $rtfeldman$elm_css$Css$RemUnits = 0;
 var $rtfeldman$elm_css$Css$rem = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'rem');
 var $rtfeldman$elm_css$Css$right = $rtfeldman$elm_css$Css$prop1('right');
-var $rtfeldman$elm_css$Css$sansSerif = {K: 0, a5: 'sans-serif'};
 var $rtfeldman$elm_css$Css$Structure$Screen = 1;
 var $rtfeldman$elm_css$Css$Media$screen = 1;
 var $rtfeldman$elm_css$Css$scroll = {aq: 0, bd: 0, bu: 0, af: 0, co: 0, a5: 'scroll'};
+var $rtfeldman$elm_css$Css$serif = {K: 0, a5: 'serif'};
 var $rtfeldman$elm_css$Css$Global$small = $rtfeldman$elm_css$Css$Global$typeSelector('small');
 var $rtfeldman$elm_css$Css$solid = {n: 0, R: 0, a5: 'solid'};
 var $rtfeldman$elm_css$Css$Global$span = $rtfeldman$elm_css$Css$Global$typeSelector('span');
@@ -8927,7 +8927,9 @@ var $author$project$Styles$styles = function () {
 			A2(
 			$rtfeldman$elm_css$Css$padding2,
 			$rtfeldman$elm_css$Css$px(1),
-			$rtfeldman$elm_css$Css$px(2))
+			$rtfeldman$elm_css$Css$px(2)),
+			$rtfeldman$elm_css$Css$lineHeight(
+			$rtfeldman$elm_css$Css$em(1.4))
 		]);
 	return $rtfeldman$elm_css$Html$Styled$toUnstyled(
 		$rtfeldman$elm_css$Css$Global$global(
@@ -8947,22 +8949,26 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$fontFamilies(
 							_List_fromArray(
 								[
-									'JetBrains Mono, monospace',
-									'Open Sans',
-									'Arial',
+									'Libre Baskerville',
+									'Georgia',
+									'Cambria',
+									'Times New Roman',
+									'Times',
 									function ($) {
 									return $.a5;
-								}($rtfeldman$elm_css$Css$sansSerif)
+								}($rtfeldman$elm_css$Css$serif)
 								])),
 							$rtfeldman$elm_css$Css$fontSize(
 							$rtfeldman$elm_css$Css$em(2)),
 							$rtfeldman$elm_css$Css$lineHeight(
-							$rtfeldman$elm_css$Css$em(1.4)),
+							$rtfeldman$elm_css$Css$em(1.6)),
 							wideScreen(
 							_List_fromArray(
 								[
 									$rtfeldman$elm_css$Css$fontSize(
-									$rtfeldman$elm_css$Css$em(1))
+									$rtfeldman$elm_css$Css$em(1)),
+									$rtfeldman$elm_css$Css$lineHeight(
+									$rtfeldman$elm_css$Css$em(1.8))
 								]))
 						])),
 					$rtfeldman$elm_css$Css$Global$a(
@@ -8996,12 +9002,14 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$fontFamilies(
 							_List_fromArray(
 								[
-									'JetBrains Mono, monospace',
-									'Proza Libre',
-									'Helvetica',
+									'Libre Baskerville',
+									'Georgia',
+									'Cambria',
+									'Times New Roman',
+									'Times',
 									function ($) {
 									return $.a5;
-								}($rtfeldman$elm_css$Css$sansSerif)
+								}($rtfeldman$elm_css$Css$serif)
 								])),
 							$rtfeldman$elm_css$Css$lineHeight(
 							$rtfeldman$elm_css$Css$em(1.1)),
