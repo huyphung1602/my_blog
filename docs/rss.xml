@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Thu, 31 Mar 2022 22:05:22 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 02 Apr 2022 16:54:16 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -181,6 +181,22 @@ Pixel is easy to transfer from the design to the web ...]]></description>
 
 class Category
 ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Interacting with time in elm]]></title>
+            <link>/2022-04-02-interacting-with-time-in-elm</link>
+            <guid>/2022-04-02-interacting-with-time-in-elm</guid>
+            <pubDate>Sat, 02 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[There are two ways to interact with time in Elm.
+
+Via the command ("let me know when so much time has elapsed")
+Via the subscription ("let me know every time this interval has elapsed")
+
+To understand the command and subscription in Elm I recommend you to read the Elm documentation and this article at first. Moreover, you also have to learn the usages of Process and Task in Elm.
+
+Via a command
+
+A command is a way of telling Elm, "Hey, I want you to do this thing!". So, if you want to send an HTT...]]></description>
         </item>
     </channel>
 </rss>
