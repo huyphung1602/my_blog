@@ -6,8 +6,8 @@ tags: software elm frontend
 
 There are two ways to interact with time in Elm.
 
-- Via the command ("let me know when so much time has elapsed")
-- Via the subscription ("let me know every time this interval has elapsed")
+- Via the command ("let me know when so much time has elapsed").
+- Via the subscription ("let me know every time this interval has elapsed").
 
 To understand the **command** and **subscription** in Elm I recommend you to read the [Elm documentation](https://guide.elm-lang.org/effects/) and this [article](https://lucamug.medium.com/commands-and-subscriptions-in-elm-9ff506e75d2d) at first. Moreover, you also have to learn the usages of [Process](https://package.elm-lang.org/packages/elm/core/latest/Process) and [Task](https://package.elm-lang.org/packages/elm/core/latest/Task) in Elm.
 
@@ -109,7 +109,7 @@ subscriptions model =
     Expired -> Sub.none
 ```
 
-The `subscription` function triggers a `Tick` message every second when the game is in the `InProgress` state
+The `subscription` function triggers a `Tick` message every second when the game is in the `InProgress` state.
 
 ```elm
 subscription : model -> Sub Msg

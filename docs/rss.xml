@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sat, 02 Apr 2022 16:54:16 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 02 Apr 2022 16:57:54 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -189,14 +189,14 @@ class Category
             <pubDate>Sat, 02 Apr 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[There are two ways to interact with time in Elm.
 
-Via the command ("let me know when so much time has elapsed")
-Via the subscription ("let me know every time this interval has elapsed")
+Via the command ("let me know when so much time has elapsed").
+Via the subscription ("let me know every time this interval has elapsed").
 
 To understand the command and subscription in Elm I recommend you to read the Elm documentation and this article at first. Moreover, you also have to learn the usages of Process and Task in Elm.
 
 Via a command
 
-A command is a way of telling Elm, "Hey, I want you to do this thing!". So, if you want to send an HTT...]]></description>
+A command is a way of telling Elm, "Hey, I want you to do this thing!". So, if you want to send an H...]]></description>
         </item>
     </channel>
 </rss>
