@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sun, 03 Apr 2022 15:35:42 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Apr 2022 23:58:16 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -199,7 +199,7 @@ Via a command
 A command is a way of telling Elm, "Hey, I want you to do this thing!". So, if you want to send an H...]]></description>
         </item>
         <item>
-            <title><![CDATA[Random Moment: Old good friends]]></title>
+            <title><![CDATA[Random Moment: Good old friends]]></title>
             <link>/2022-04-03-good-old-friends</link>
             <guid>/2022-04-03-good-old-friends</guid>
             <pubDate>Sun, 03 Apr 2022 00:00:00 GMT</pubDate>

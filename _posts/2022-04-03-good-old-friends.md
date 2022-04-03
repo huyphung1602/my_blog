@@ -1,5 +1,5 @@
 ---
-title: "Random Moment: Old good friends"
+title: "Random Moment: Good old friends"
 tags: moment
 ---
 
