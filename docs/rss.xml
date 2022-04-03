@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sat, 02 Apr 2022 16:57:54 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Apr 2022 15:35:42 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -197,6 +197,17 @@ To understand the command and subscription in Elm I recommend you to read the El
 Via a command
 
 A command is a way of telling Elm, "Hey, I want you to do this thing!". So, if you want to send an H...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Random Moment: Old good friends]]></title>
+            <link>/2022-04-03-good-old-friends</link>
+            <guid>/2022-04-03-good-old-friends</guid>
+            <pubDate>Sun, 03 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Today, I come to celebrate the wedding of one of my childhood friends. Before, I feel very lazy. However, this guy is one of my best friends, and I could not deny his invitation.
+
+At the party, I met many old friends. We have known each other for about 20 years. They remind me of a lot of great memories. They also remind me of many other friends we know in the past. It is happy to talk with these guys.
+
+I just remembered the great reminiscences with the groom. We used to ride our bicycles for 1-...]]></description>
         </item>
     </channel>
 </rss>
