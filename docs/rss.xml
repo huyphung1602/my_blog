@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Mon, 04 Apr 2022 15:10:37 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Apr 2022 13:12:40 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -227,6 +227,29 @@ Each time we use enumerable methods like map, collect, select, we create an enum
 Normal Enumerator
 
 Let's say, we have to fetch 10 Twitter users' ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Learning Note: Problem Solving Skills for SWE - P1]]></title>
+            <link>/2022-04-05-problem-solving-skills-p1</link>
+            <guid>/2022-04-05-problem-solving-skills-p1</guid>
+            <pubDate>Tue, 05 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[A quick note of Grokking Techtalk #44 - Problem-Solving Skills for SWE
+
+This note is not cover the whole tech talk content. It is just a quick note to highlight the important points. It is useful when you already listened to the tech talk.
+
+Who has the problem?
+
+The stakeholders:
+
+Clients are the people who buy your product, or solution.
+Users are the people who use your product directly.
+
+What is the problem?
+
+A problem contains two components:
+
+The expected reality of the stakeholders.
+The per...]]></description>
         </item>
     </channel>
 </rss>
