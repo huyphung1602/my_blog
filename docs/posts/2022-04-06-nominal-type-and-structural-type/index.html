@@ -1,0 +1,252 @@
+<!doctype html><html style="font-size: 100%;"><head><title>Reading Note: Nominal type and Structural type | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: Nominal type and Structural type</h1><div class="post-metadata"><span>2022-04-06</span><span>•</span><a href="/tags/software">software</a><a href="/tags/type-system">type-system</a></div><div attr.class="markdown"><p>Today I learn that an important attribute of every type system is whether they are <strong>structural</strong> or <strong>nominal</strong>.</p>
+<p>A static type checker uses either the names or the structure of the types to compare them against other types. Checking against the name is nominal typing and checking against the structure is structural typing.</p>
+<h2 id="nominal-type">Nominal Type</h2>
+<p>In a <strong>nominal</strong>, or <strong>nominative</strong>, or <strong>name-based type system</strong>, two types are deemed to be the same if they have the same name.</p>
+<p><strong>Subtyping:</strong> type T1 is deemed to be a subtype of a type T2 if T1 is <strong>explicitly declared</strong> to be a subtype of T2.</p>
+<p>Example:</p>
+<pre><code class="lang-js">class Person {
+    public name: string;
+}
+
+class Employee extends Person {
+    public salary: number;
+}
+
+class Manager extends Employee { }
+
+class Product {
+    public name: string;
+    public price: number;
+}
+</code></pre>
+<ul>
+<li><code>Employee</code> is a subtype of <code>Person</code> because it is declared as such using the keyword “extends” in the class declaration.</li>
+<li><code>Product</code> is not a subtype of <code>Person</code> because it does not use the “extends” declaration.</li>
+</ul>
+<p>Languages like <strong>C++, Java, and Swift</strong> have primarily nominal type systems.</p>
+<h2 id="structural-type">Structural Type</h2>
+<p>In a structural type system, two types are deemed the same if they are of the <strong>same structure</strong>. Two types are the same in structure if they have the same public fields and methods of compatible type/signature.</p>
+<p><strong>Subtyping:</strong> Type T1 is deemed a subtype of a type T2 if and only if T1 has all public members (of compatible type/signature) that T2 has (but may have more than T2).</p>
+<p>Let’s look at the previous code.</p>
+<ul>
+<li>In nominal, <code>Product</code> is not a subtype of <code>Person</code>.</li>
+<li>In structural, <code>Product</code> is deemed a structural subtype of <code>Person</code> because it has all of Person’s public members of compatible type (only field <code>name</code> in this case).</li>
+<li>In structural, <code>Person</code> is not a subtype of Product because it lacks Product’s field <code>price</code></li>
+</ul>
+<p>Languages like <strong>OCaml, Haskell, and Elm</strong> have primarily structural type systems.</p>
+<h2 id="comparison">Comparison</h2>
+<ul>
+<li>Structural typing is more flexible than nominal typing.</li>
+<li>Nominal typing is a better type-safety than structural type.</li>
+<li>A pitfall of structural typing versus nominative typing is that two separately defined types are intended for a different purpose, but accidentally hold the same properties and be considered the same type by the type system. One solution for this is to create one <strong>algebraic data type</strong> for each use.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Structural_type_system">https://en.wikipedia.org/wiki/Structural_type_system</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nominal_type_system">https://en.wikipedia.org/wiki/Nominal_type_system</a></li>
+<li><a href="https://flow.org/en/docs/lang/nominal-structural/">https://flow.org/en/docs/lang/nominal-structural/</a></li>
+<li><a href="https://www.eclipse.org/n4js/features/nominal-and-structural-typing.html">https://www.eclipse.org/n4js/features/nominal-and-structural-typing.html</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    font-size:2em;
+    line-height:1.6em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1.2em;
+    line-height:1.6em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    code {
+        font-size:0.9em;
+    line-height:1.2em;
+    }
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+    font-family:JetBrains Mono, monospace, monospace;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>

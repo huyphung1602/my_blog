@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Tue, 05 Apr 2022 13:12:40 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Apr 2022 16:08:43 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -250,6 +250,21 @@ A problem contains two components:
 
 The expected reality of the stakeholders.
 The per...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Nominal type and Structural type]]></title>
+            <link>/2022-04-06-nominal-type-and-structural-type</link>
+            <guid>/2022-04-06-nominal-type-and-structural-type</guid>
+            <pubDate>Wed, 06 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Today I learn that an important attribute of every type system is whether they are structural or nominal.
+
+A static type checker uses either the names or the structure of the types to compare them against other types. Checking against the name is nominal typing and checking against the structure is structural typing.
+
+Nominal Type
+
+In a nominal, or nominative, or name-based type system, two types are deemed to be the same if they have the same name.
+
+Subtyping: type T1 is deemed to be a subtype ...]]></description>
         </item>
     </channel>
 </rss>
