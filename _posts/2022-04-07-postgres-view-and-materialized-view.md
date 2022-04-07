@@ -1,5 +1,5 @@
 ---
-title: "Reading Note: PostgreSQL view and materialized view"
+title: "Reading Note: PostgreSQL views and materialized views"
 tags: software database postgresql
 ---
 

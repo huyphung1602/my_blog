@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Thu, 07 Apr 2022 06:58:39 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Apr 2022 07:00:12 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -267,7 +267,7 @@ In a nominal, or nominative, or name-based type system, two types are deemed to 
 Subtyping: type T1 is deemed to be a subtype ...]]></description>
         </item>
         <item>
-            <title><![CDATA[Reading Note: PostgreSQL view and materialized view]]></title>
+            <title><![CDATA[Reading Note: PostgreSQL views and materialized views]]></title>
             <link>/2022-04-07-postgres-view-and-materialized-view</link>
             <guid>/2022-04-07-postgres-view-and-materialized-view</guid>
             <pubDate>Thu, 07 Apr 2022 00:00:00 GMT</pubDate>
