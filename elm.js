@@ -5463,6 +5463,7 @@ var $author$project$Elmstatic$htmlTemplate = F2(
 							_List_Nil),
 							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js'),
 							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js'),
+							$author$project$Elmstatic$script('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/pgsql.min.js'),
 							$author$project$Elmstatic$inlineScript('hljs.initHighlightingOnLoad();'),
 							$author$project$Elmstatic$stylesheet('//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css'),
 							$author$project$Elmstatic$stylesheet('//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times')

@@ -19,5 +19,18 @@
           "link": ""
         }
     },
-    "tags": ["software", "functional", "elm", "ruby", "writing", "frontend", "backend", "rails", "css", "moment", "type-system"]
+    "tags": [ "software",
+              "functional",
+              "elm",
+              "ruby",
+              "writing",
+              "frontend",
+              "backend",
+              "rails",
+              "css",
+              "moment",
+              "type-system",
+              "database",
+              "postgresql"
+            ]
 }

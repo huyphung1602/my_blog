@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Wed, 06 Apr 2022 16:08:43 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Apr 2022 06:58:39 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -265,6 +265,21 @@ Nominal Type
 In a nominal, or nominative, or name-based type system, two types are deemed to be the same if they have the same name.
 
 Subtyping: type T1 is deemed to be a subtype ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: PostgreSQL view and materialized view]]></title>
+            <link>/2022-04-07-postgres-view-and-materialized-view</link>
+            <guid>/2022-04-07-postgres-view-and-materialized-view</guid>
+            <pubDate>Thu, 07 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[A view is a database object that is of a stored query.
+
+A view is defined based on one or more tables which are known as base tables. When you create a view, you create a query and assign a name to the query. It is useful for wrapping a commonly used complex query.
+
+The regular views do not store any data except the materialized views.
+
+Materialized Views in PostgreSQL
+
+The regular views are the virtual tables that represent the data of the underlying tables. The regular views do not store any d...]]></description>
         </item>
     </channel>
 </rss>
