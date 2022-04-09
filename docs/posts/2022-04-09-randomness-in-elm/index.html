@@ -1,0 +1,358 @@
+<!doctype html><html style="font-size: 100%;"><head><title>Reading Note: Randomness in Elm | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/pgsql.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: Randomness in Elm</h1><div class="post-metadata"><span>2022-04-09</span><span>•</span><a href="/tags/software">software</a><a href="/tags/functional">functional</a><a href="/tags/elm">elm</a><a href="/tags/frontend">frontend</a></div><div attr.class="markdown"><p>In <code>JavaScript</code>, we use <code>Math.random</code> to produce random numbers. It does not expect a seed.</p>
+<p>Elm is compiled to <code>JavaScript</code>. However, elm does not use the native implementation for random number generation.</p>
+<h2 id="generators">Generators</h2>
+<p>The generators are behind all the randomness in Elm.</p>
+<ul>
+<li>A generator is a type.</li>
+<li>A generator describes how to produce random values.</li>
+</ul>
+<p>Let’s create a generator that describes how to produce a random integer from 0 to 3.</p>
+<pre><code class="lang-elm">&gt; Random.int 0 3
+Generator &lt;function&gt; : Random.Generator Int
+
+-- Let try to wrap it in a function
+&gt; zeroToThreeGenerator : Random.Generator Int
+| zeroToThreeGenerator =
+|   Random.int 0 3
+Generator &lt;function&gt; : Random.Generator Int
+</code></pre>
+<p>Now, imagine that I would like to randomly select an item from a list. For example, you are creating a game where your hero has to select a random weapon in his weapon list. (Do you know <a href="https://hunterxhunter.fandom.com/wiki/Kite">Kite</a> in Hunter x Hunter?)</p>
+<pre><code class="lang-elm">type Weapon
+    = Sword
+    | Cannon
+    | Scythe
+    | Knife
+
+numToWeapon : Int -&gt; Weapon
+numToWeapon num =
+    case num of
+        0 -&gt;
+            Sword
+        1 -&gt;
+            Cannon
+        2 -&gt;
+            Scythe
+        _ -&gt;
+            Knife
+
+weaponGenerator : Random.Generator Weapon
+weaponGenerator =
+    Random.map numToWeapon (Random.int 0 3)
+
+-- type of weaponGenerator
+Generator &lt;function&gt; : Random.Generator Weapon
+</code></pre>
+<p>When we typed these codes in <code>elm repl</code> because they are the generators, they cannot produce the values directly.</p>
+<h2 id="produce-the-values">Produce the values</h2>
+<p>There are two main approaches to generating random numbers:</p>
+<ul>
+<li>True Random Number Generators (TRNGs)</li>
+<li>Pseudo-Random Number Generators (PRNGs)</li>
+</ul>
+<p>TRNGs take a longer time to generate random numbers because they generate the numbers from truly random physical phenomena (atmospheric noise picked up by radio).</p>
+<p>PRNGs take an initial value (called seed) and apply an algorithm to generate a seemingly random number.</p>
+<h2 id="generating-random-numbers-without-seed">Generating random numbers without seed</h2>
+<p>We could not produce the random values with side effects directly in <code>elm repl</code>. Let’s look at this random weapon application I wrote: <a href="https://ellie-app.com/h9GHr7WF6x4a1">RandomWeaponWithoutSeed</a></p>
+<p>In this example, I use <code>Random.generate</code> to produce the values.</p>
+<pre><code class="lang-elm">type Msg
+    = GenerateRandomWeapon
+    | NewRandomWeapon Weapon
+
+
+update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        GenerateRandomWeapon -&gt;
+            ( model, Random.generate NewRandomWeapon weaponGenerator )
+
+        NewRandomWeapon weapon -&gt;
+            ( weapon, Cmd.none )
+-- END:update
+</code></pre>
+<p>It relies on <a href="https://en.wikipedia.org/wiki/Real-time_clock">real-time clock</a> behind the scenes. So, it will not be efficient randomness if you run this command multiple times consecutively. It is a risk of getting the same value from running <code>Random.generate</code> multiple times consecutively.</p>
+<h3 id="generating-random-numbers-with-seed">Generating random numbers with seed</h3>
+<p>Let’s create a seed:</p>
+<pre><code class="lang-elm">&gt; Random.initialSeed
+&lt;function&gt; : Int -&gt; Random.Seed
+
+&gt; seed0 = Random.initialSeed 132132
+Seed 2090120966 1013904223 : Random.Seed
+</code></pre>
+<p><code>elm/random</code> provides us <code>Random.step</code>. Each time we call <code>Random.step</code> we need to provide a generator and a seed. This will produce a tuple containing a random value and a <strong>new seed</strong> to use if we want to run other generators later.</p>
+<pre><code class="lang-elm">&gt; Random.step
+&lt;function&gt; : Random.Generator a -&gt; Random.Seed -&gt; ( a, Random.Seed )
+</code></pre>
+<p>Now, we could use the <code>Random.step</code> function to generate a random value.</p>
+<pre><code class="lang-elm">&gt; Random.step weaponGenerator seed0
+(Knife,Seed 2961089197 1013904223)
+    : ( Weapon, Random.Seed )
+</code></pre>
+<p>Let’s add a <code>seedGenerator</code> to our previous application:</p>
+<pre><code class="lang-elm">seedGenerator : Random.Generator Random.Seed
+seedGenerator =
+    Random.int Random.minInt Random.maxInt
+        |&gt; Random.map (Random.initialSeed)
+</code></pre>
+<p>Then, we add seed into the model. In the beginning, there is no seed, so I use the <code>Maybe Random.Seed</code> type for this one.</p>
+<pre><code class="lang-elm">type alias Model =
+    { seed : Maybe Random.Seed
+    , weapon : Weapon
+    }
+
+init : () -&gt; ( Model, Cmd Msg )
+init _ =
+    ( { seed = Nothing
+    , weapon = Sword
+    }
+    , Random.generate UpdateSeed seedGenerator
+    )
+</code></pre>
+<p>Because we define the seed type as <code>Maybe Random.Seed</code>. So, we need to use <a href="https://package.elm-lang.org/packages/elm-lang/core/5.0.0/Maybe#map">Maybe.map</a> and <a href="https://package.elm-lang.org/packages/elm-lang/core/5.0.0/Maybe#withDefault">Maybe.withDefault</a> in the update function to step the value.</p>
+<pre><code class="lang-elm">type Msg
+    = UpdateSeed Random.Seed
+    | PutRandomWeapon
+
+update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        UpdateSeed seed -&gt;
+            ( { model | seed = Just seed }
+            , Cmd.none
+            )
+        PutRandomWeapon -&gt;
+            let
+                newModel : Model
+                newModel =
+                    model.seed
+                        |&gt; Maybe.map (Random.step weaponGenerator)
+                        |&gt; Maybe.map
+                            (\(randWeapon, seed) -&gt;
+                                { model | seed = Just seed, weapon = randWeapon }
+                            )
+                        |&gt; Maybe.withDefault model
+            in
+            (newModel, Cmd.none)
+</code></pre>
+<p>Let’s check this new approach:</p>
+<ul>
+<li>In the initial run, we generate a random seed base on <code>Time.now</code>.</li>
+<li>Then, this initial seed is used to generate the first random weapon.</li>
+<li>At the same time, the <code>Random.step</code> also creates the <strong>new seed</strong> for the next step.</li>
+<li>When we click generate button again, the <strong>new seed</strong> is used to generate the new random weapon.</li>
+</ul>
+<p>This will resolve the problem when using <code>Random.generate</code> to produce the random values. For the full source code please check this: <a href="https://ellie-app.com/h9HzDZqcLNva1">RandomWeaponWithSeed</a></p>
+<h2 id="in-short">In short</h2>
+<ul>
+<li>A <strong>generator</strong> is a type that describes how to produce random values. It does not produce the random value.</li>
+<li>Using <code>Random.generate</code> will cause side effects because it generates the seed by <a href="https://en.wikipedia.org/wiki/Real-time_clock">real-time clock</a> embedded in our computer.</li>
+<li>It is a risk of getting the same value from running <code>Random.generate</code> multiple times consecutively. This issue could be resolved by using <code>Random.generate</code> combined with <code>Random.step</code>.</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://hub.packtpub.com/random-value-generators-elm/">https://hub.packtpub.com/random-value-generators-elm/</a></li>
+<li><a href="https://elmprogramming.com/commands.html">https://elmprogramming.com/commands.html</a></li>
+<li><a href="https://ckoster22.medium.com/randomness-in-elm-8e977457bf1b">https://ckoster22.medium.com/randomness-in-elm-8e977457bf1b</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    font-size:2em;
+    line-height:1.6em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1.2em;
+    line-height:1.6em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    code {
+        font-size:0.9em;
+    line-height:1.2em;
+    }
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+    font-family:JetBrains Mono, monospace, monospace;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>

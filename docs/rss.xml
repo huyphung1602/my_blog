@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Thu, 07 Apr 2022 07:00:12 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Apr 2022 11:01:51 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -280,6 +280,29 @@ The regular views do not store any data except the materialized views.
 Materialized Views in PostgreSQL
 
 The regular views are the virtual tables that represent the data of the underlying tables. The regular views do not store any d...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Randomness in Elm]]></title>
+            <link>/2022-04-09-randomness-in-elm</link>
+            <guid>/2022-04-09-randomness-in-elm</guid>
+            <pubDate>Sat, 09 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[In JavaScript, we use Math.random to produce random numbers. It does not expect a seed.
+
+Elm is compiled to JavaScript. However, elm does not use the native implementation for random number generation.
+
+Generators
+
+The generators are behind all the randomness in Elm.
+
+A generator is a type.
+A generator describes how to produce random values.
+
+Let's create a generator that describes how to produce a random integer from 0 to 3.
+
+> Random.int 0 3
+Generator  : Random.Generator Int
+
+-- Let try to wra...]]></description>
         </item>
     </channel>
 </rss>
