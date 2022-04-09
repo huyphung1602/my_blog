@@ -35,8 +35,6 @@ class Product {
 - `Employee` is a subtype of `Person` because it is declared as such using the keyword "extends" in the class declaration.
 - `Product` is not a subtype of `Person` because it does not use the "extends" declaration.
 
-Languages like **C++, Java, and Swift** have primarily nominal type systems.
-
 ## Structural Type
 
 In a structural type system, two types are deemed the same if they are of the **same structure**. Two types are the same in structure if they have the same public fields and methods of compatible type/signature.
@@ -48,8 +46,6 @@ Let's look at the previous code.
 - In nominal, `Product` is not a subtype of `Person`.
 - In structural, `Product` is deemed a structural subtype of `Person` because it has all of Person's public members of compatible type (only field `name` in this case).
 - In structural, `Person` is not a subtype of Product because it lacks Product's field `price`
-
-Languages like **OCaml, Haskell, and Elm** have primarily structural type systems.
 
 ## Comparison
 
