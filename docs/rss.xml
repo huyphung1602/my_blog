@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sat, 09 Apr 2022 11:19:17 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 10 Apr 2022 08:23:50 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -303,6 +303,26 @@ Let's create a generator that describes how to produce a random integer from 0 t
 Generator  : Random.Generator Int
 
 -- Let try to wra...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Stack and Heap of the Process]]></title>
+            <link>/2022-04-10-stack_and_heap_of_the_process</link>
+            <guid>/2022-04-10-stack_and_heap_of_the_process</guid>
+            <pubDate>Sun, 10 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Process
+
+A program can do nothing unless its instructions are executed by a CPU. A program in execution is a process.
+
+The status of the current activity of a process is represented by the value of the program counter and the contents of the processor's registers.
+
+layout-of-a-process-in-memory
+
+Layout of a process in memory
+
+Text section: The executable code
+Data section: global variables
+Heap section: memory that is dynamically allocated during program run time
+Stack section: temporary dat...]]></description>
         </item>
     </channel>
 </rss>

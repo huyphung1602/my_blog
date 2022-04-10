@@ -1,0 +1,237 @@
+<!doctype html><html style="font-size: 100%;"><head><title>Reading Note: Stack and Heap of the Process | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/pgsql.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: Stack and Heap of the Process</h1><div class="post-metadata"><span>2022-04-10</span><span>•</span><a href="/tags/software">software</a><a href="/tags/operating-system">operating-system</a></div><div attr.class="markdown"><h2 id="the-process">The Process</h2>
+<p>A program can do nothing unless its instructions are executed by a CPU. A program in execution is a process.</p>
+<p>The status of the current activity of a process is represented by the value of the <strong>program counter</strong> and the contents of the processor’s registers.</p>
+<p><img src="https://i.imgur.com/qQo2n2S.png" alt="layout-of-a-process-in-memory"></p>
+<p><sub>Layout of a process in memory</sub></p>
+<ul>
+<li><strong>Text section</strong>: The executable code</li>
+<li><strong>Data section</strong>: global variables</li>
+<li><strong>Heap section</strong>: memory that is dynamically allocated during program run time</li>
+<li><strong>Stack section</strong>: temporary data storage when invoking functions (such as function parameters, return addresses, and local variables)</li>
+</ul>
+<p>The size of text and data sections are fixed. Their size does not change during the program run time.</p>
+<p>The stack and heap sections shrink and grow dynamically during program execution.</p>
+<h2 id="stack">Stack</h2>
+<p>A stack is a simple last-in, first-out (<strong>LIFO</strong>) data structure.</p>
+<p>The structure of the stacks is rigid and they only allow access at the top level. But this rigid also makes the stacks easy to implement. The push and pop operations are fast and efficient.</p>
+<p>The stacks are used for function calls. Each time a function is called, the parameters, local variables, and the return address are pushed onto the stack. Returning from the function call pops those items off the stack. The variables that are declared and initialized <strong>before</strong> runtime are stored in the stack.</p>
+<h2 id="heap">Heap</h2>
+<p>The heap is more flexible than the stack. The stack only allows allocation and deallocation at the top. The heap allows the program to allocate or deallocate the memory anywhere in a heap.</p>
+<p>So, the advantage is that the program can store the data on the heap in any order.</p>
+<p>The disadvantages are:</p>
+<ul>
+<li>The code containing the allocation operation must scan the heap until it finds a contiguous block of memory that is large enough to satisfy the allocation request.</li>
+<li>When the memory is returned to the stack, adjacent freed blocks must be coalesced to free the space for the future requests for large blocks of memory.</li>
+</ul>
+<p>The heap is used for memory that is dynamically allocated during program run time. All the variables created or initialized <strong>at</strong> runtime are stored in the heap.</p>
+<p><img src="https://i.imgur.com/hF2U50i.png" alt="layout-of-a-c-program-in-memory"></p>
+<p><sub>Layout of a C program in memory</sub></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.amazon.com/Operating-System-Concepts-Abraham-Silberschatz/dp/1119800366">Operating System Concepts</a></li>
+<li><a href="https://icarus.cs.weber.edu/~dab/cs1410/textbook/4.Pointers/memory.html">https://icarus.cs.weber.edu/~dab/cs1410/textbook/4.Pointers/memory.html</a></li>
+<li><a href="http://www.maxi-pedia.com/what+is+heap+and+stack">http://www.maxi-pedia.com/what+is+heap+and+stack</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    font-size:2em;
+    line-height:1.6em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1.2em;
+    line-height:1.6em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    code {
+        font-size:0.9em;
+    line-height:1.2em;
+    }
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+    font-family:JetBrains Mono, monospace, monospace;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>
