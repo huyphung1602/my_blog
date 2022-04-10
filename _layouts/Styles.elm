@@ -44,6 +44,10 @@ styles =
             [ Css.color <| hex dBgColor
             , textDecoration none
             ]
+        , img
+            [ Css.maxWidth <| px 750
+            , wideScreen [ Css.maxWidth <| pct 100 ]
+            ]
         , code codeStyle
         , Css.Global.pre
             [ descendants

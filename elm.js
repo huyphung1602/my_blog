@@ -8251,6 +8251,7 @@ var $rtfeldman$elm_css$Css$hex = function (str) {
 	}
 	return $rtfeldman$elm_css$Css$erroneousHex(str);
 };
+var $rtfeldman$elm_css$Css$Global$img = $rtfeldman$elm_css$Css$Global$typeSelector('img');
 var $elm$core$String$endsWith = _String_endsWith;
 var $rtfeldman$elm_css$Css$makeImportant = function (str) {
 	return A2(
@@ -8979,6 +8980,18 @@ var $author$project$Styles$styles = function () {
 							$rtfeldman$elm_css$Css$color(
 							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
 							$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$none)
+						])),
+					$rtfeldman$elm_css$Css$Global$img(
+					_List_fromArray(
+						[
+							$rtfeldman$elm_css$Css$maxWidth(
+							$rtfeldman$elm_css$Css$px(750)),
+							wideScreen(
+							_List_fromArray(
+								[
+									$rtfeldman$elm_css$Css$maxWidth(
+									$rtfeldman$elm_css$Css$pct(100))
+								]))
 						])),
 					$rtfeldman$elm_css$Css$Global$code(codeStyle),
 					$rtfeldman$elm_css$Css$Global$pre(
