@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sun, 10 Apr 2022 09:49:49 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Apr 2022 11:30:41 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -323,6 +323,29 @@ Text section: The executable code
 Data section: global variables
 Heap section: memory that is dynamically allocated during program run time
 Stack section: temporary dat...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[My setup for an Elm application from development to production]]></title>
+            <link>/2022-04-14-my-setup-for-elm-application</link>
+            <guid>/2022-04-14-my-setup-for-elm-application</guid>
+            <pubDate>Thu, 14 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Install Elm
+
+It is easy to install elm via this guide Install Elm
+
+After installing elm, now create a folder for your application and run elm init
+
+~/workspace > mkdir elmproject && cd elmproject
+~/workspace > elm init
+
+This command will create an elm.json file and an src/ directory:
+
+elm.json file describes your project's direct and indirect dependencies.
+src/ hold your Elm files.
+
+Development
+
+All the Elm applications start from a single file called Main.elm. Let's write one. You could try a s...]]></description>
         </item>
     </channel>
 </rss>

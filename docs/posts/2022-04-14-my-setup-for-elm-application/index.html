@@ -1,0 +1,284 @@
+<!doctype html><html style="font-size: 100%;"><head><title>My setup for an Elm application from development to production | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/pgsql.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>My setup for an Elm application from development to production</h1><div class="post-metadata"><span>2022-04-14</span><span>•</span><a href="/tags/software">software</a><a href="/tags/elm">elm</a></div><div attr.class="markdown"><h2 id="install-elm">Install Elm</h2>
+<p>It is easy to install elm via this guide <a href="https://guide.elm-lang.org/install/elm.html">Install Elm</a></p>
+<p>After installing elm, now create a folder for your application and run <code>elm init</code></p>
+<pre><code class="lang-shell">~/workspace &gt; mkdir elm_project &amp;&amp; cd elm_project
+~/workspace &gt; elm init
+</code></pre>
+<p>This command will create an elm.json file and an src/ directory:</p>
+<ul>
+<li><code>elm.json</code> file describes your project’s direct and indirect dependencies.</li>
+<li><code>src/</code> hold your Elm files.</li>
+</ul>
+<h2 id="development">Development</h2>
+<p>All the Elm applications start from a single file called <code>Main.elm</code>. Let’s write one. You could try a simple example of a counter application here: <a href="https://guide.elm-lang.org/">https://guide.elm-lang.org/</a></p>
+<h2 id="yarn">Yarn</h2>
+<p>There are many ways to manage our El project. I prefer to use <code>yarn</code> for package manager and <code>parcel</code> for bundler. There is no reason behind that, you could choose another package manager and bundler.</p>
+<p>Now, run:</p>
+<pre><code class="lang-shell">~/workspace/elm_project &gt; yarn init
+~/workspace/elm_project &gt; yarn add parcel
+</code></pre>
+<p>You need to add <a href="https://yarnpkg.com/package/elm">elm</a>. You may also want to add:</p>
+<ul>
+<li><a href="https://yarnpkg.com/package/elm-hot">elm-hot</a> for hot code swapping for Elm</li>
+<li><a href="https://yarnpkg.com/package/elm-test">elm-test</a> for running tests</li>
+</ul>
+<pre><code class="lang-shell">~/workspace/elm_project &gt; yarn add elm
+~/workspace/elm_project &gt; yarn add elm-hot
+~/workspace/elm_project &gt; yarn add elm-test
+</code></pre>
+<h2 id="parcel">Parcel</h2>
+<p>It is time to learn how to use <code>parcel</code> for hot-loading your development on local and build the Javascript files for production.</p>
+<p>You should want to read this one: <a href="https://parceljs.org/languages/elm/">https://parceljs.org/languages/elm/</a></p>
+<p>In short, you will need to define an <code>index.html</code> file:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;div id="root"&gt;&lt;/div&gt;
+&lt;script type="module" src="index.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>And an <code>index.j</code>s file:</p>
+<pre><code class="lang-javascript">import { Elm } from "./Main.elm";
+Elm.Main.init({ node: document.getElementById("root") });
+</code></pre>
+<p>You need this to add <a href="https://yarnpkg.com/package/@parcel/transformer-elm">@parcel/transformer-elm</a> to bundle the elm code.</p>
+<p>Your <code>package.json</code> should look like the below. I changed the <strong>source</strong> and <strong>scripts</strong> properties.</p>
+<pre><code class="lang-json">{
+  "name": "elm_project",
+  "version": "1.0.0",
+  "license": "MIT",
+  "source": "src/index.html",
+  "dependencies": {
+    "@parcel/transformer-elm": "^2.4.1",
+    "elm": "^0.19.1-5",
+    "elm-hot": "^1.1.6",
+    "parcel": "^2.4.1"
+  },
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  }
+}
+</code></pre>
+<p>Run <strong>yarn start</strong> and you could develop elm on <code>http://localhost:1234/</code></p>
+<h2 id="source-control-and-deployment">Source control and deployment</h2>
+<p>You could use GitHub or whatever source control you love. If you use Github, you should add these files to the <code>.gitignore</code> file:</p>
+<pre><code class="lang-txt">node_modules
+elm-stuff
+.parcel-cache
+dist
+yarn-error.log
+</code></pre>
+<p>I am deploying my elm application to <a href="https://vercel.com/">https://vercel.com/</a></p>
+<p><img src="https://i.imgur.com/6P7EZxh.png" alt="https://i.imgur.com/6P7EZxh.png"></p>
+<p>I hope the guide could help you to set up your next Elm application smoothly.</p>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    font-size:2em;
+    line-height:1.6em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1.2em;
+    line-height:1.6em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+img {
+    max-width:750px;
+}
+
+@media only screen and (min-width: 1024px) {
+    img {
+        max-width:100%;
+    }
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    code {
+        font-size:0.9em;
+    line-height:1.2em;
+    }
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+    font-family:JetBrains Mono, monospace, monospace;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>
