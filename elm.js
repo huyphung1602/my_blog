@@ -5888,6 +5888,8 @@ var $rtfeldman$elm_css$Css$prop1 = F2(
 		return A2($rtfeldman$elm_css$Css$property, key, arg.bR);
 	});
 var $rtfeldman$elm_css$Css$baseline = $rtfeldman$elm_css$Css$prop1('baseline');
+var $rtfeldman$elm_css$Css$Global$blockquote = $rtfeldman$elm_css$Css$Global$typeSelector('blockquote');
+var $author$project$Styles$blockquoteBg = 'f9f9f9';
 var $rtfeldman$elm_css$Css$Global$body = $rtfeldman$elm_css$Css$Global$typeSelector('body');
 var $rtfeldman$elm_css$Css$prop3 = F4(
 	function (key, argA, argB, argC) {
@@ -5902,6 +5904,7 @@ var $rtfeldman$elm_css$Css$prop3 = F4(
 	});
 var $rtfeldman$elm_css$Css$border3 = $rtfeldman$elm_css$Css$prop3('border');
 var $rtfeldman$elm_css$Css$borderBottom3 = $rtfeldman$elm_css$Css$prop3('border-bottom');
+var $rtfeldman$elm_css$Css$borderLeft3 = $rtfeldman$elm_css$Css$prop3('border-left');
 var $rtfeldman$elm_css$Css$borderRadius = $rtfeldman$elm_css$Css$prop1('border-radius');
 var $rtfeldman$elm_css$Css$borderTop3 = $rtfeldman$elm_css$Css$prop3('border-top');
 var $rtfeldman$elm_css$Css$breakWord = {a$: 0, bR: 'break-word'};
@@ -8994,6 +8997,25 @@ var $author$project$Styles$styles = function () {
 								]))
 						])),
 					$rtfeldman$elm_css$Css$Global$code(codeStyle),
+					$rtfeldman$elm_css$Css$Global$blockquote(
+					_List_fromArray(
+						[
+							$rtfeldman$elm_css$Css$backgroundColor(
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$blockquoteBg)),
+							A3(
+							$rtfeldman$elm_css$Css$borderLeft3,
+							$rtfeldman$elm_css$Css$px(10),
+							$rtfeldman$elm_css$Css$solid,
+							$rtfeldman$elm_css$Css$hex($author$project$Styles$dBgColor)),
+							A2(
+							$rtfeldman$elm_css$Css$margin2,
+							$rtfeldman$elm_css$Css$em(1.5),
+							$rtfeldman$elm_css$Css$px(10)),
+							A2(
+							$rtfeldman$elm_css$Css$padding2,
+							$rtfeldman$elm_css$Css$em(0.5),
+							$rtfeldman$elm_css$Css$px(16))
+						])),
 					$rtfeldman$elm_css$Css$Global$pre(
 					_List_fromArray(
 						[

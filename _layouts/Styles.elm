@@ -49,6 +49,11 @@ styles =
             , wideScreen [ Css.maxWidth <| pct 100 ]
             ]
         , code codeStyle
+        , blockquote [ backgroundColor <| hex blockquoteBg
+            , borderLeft3 (px 10) solid (hex dBgColor)
+            , margin2 (Css.em 1.5) (px 10)
+            , padding2 (Css.em 0.5) (px 16)
+            ]
         , Css.Global.pre
             [ descendants
                 [ code [ important <| overflowX Css.scroll ] ]
@@ -177,3 +182,6 @@ ldBgColor = "FFCE45"
 
 dBgColor : String
 dBgColor = "1A374D"
+
+blockquoteBg : String
+blockquoteBg = "f9f9f9"

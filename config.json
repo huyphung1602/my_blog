@@ -32,6 +32,8 @@
               "type-system",
               "database",
               "postgresql",
-              "operating-system"
+              "operating-system",
+              "productive",
+              "mediation"
             ]
 }

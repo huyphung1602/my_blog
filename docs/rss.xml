@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Sun, 17 Apr 2022 07:28:30 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 17 Apr 2022 16:24:14 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -346,6 +346,22 @@ src/ hold your Elm files.
 Development
 
 All the Elm applications start from a single file called Main.elm. Let's write one. You could try a s...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Thinking modes, Pomodoro and Noble Silence]]></title>
+            <link>/2022-04-17-think-modes-pomodoro-noble-silence</link>
+            <guid>/2022-04-17-think-modes-pomodoro-noble-silence</guid>
+            <pubDate>Sun, 17 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Thinking modes
+
+There are two modes of operation:
+
+Focused mode
+Diffuse mode
+
+Focused mode is what happens when you deeply concentrate on one thing, like doing math problems. The brain tries to understand, evaluate or memorize what you are doing.
+
+Diffuse mode is what happens when you are not concentrating on anything. The thought runs randomly when we are doing other things such as jogging, cycling, or doing something in the toilet. At this time, the brains find the connections and over all of ...]]></description>
         </item>
         <item>
             <title><![CDATA[Reading Note: Web hosting]]></title>
