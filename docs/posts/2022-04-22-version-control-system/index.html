@@ -1,0 +1,267 @@
+<!doctype html><html style="font-size: 100%;"><head><title>Reading Note: Version Control System | Huy's blog</title><link href="https://i.imgur.com/TvSmXhH.png" rel="icon" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" width="device-width" initial-scale="1" maximum-scale="1" user-scalable="no"><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/elm.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/pgsql.min.js"></script><script>hljs.initHighlightingOnLoad();</script><link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=JetBrains+Mono|Libre+Baskerville|Georgia|Cambria|Times+New+Roman|Times" rel="stylesheet" type="text/css"></head><body><div class="header-logo"><a href="/posts"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="30" fill="#1A374D"></circle><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#F7F6E7" font-family="JetBrains Mono, monospace, Open Sans, Arial" font-weight="600" font-size="18px">huy</text></svg></a></div><div class="navigation"><ul><li><a href="/posts">Posts</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div><div class="sidebar"></div><div class="sidebar2"></div><div class="content"><h1>Reading Note: Version Control System</h1><div class="post-metadata"><span>2022-04-22</span><span>•</span><a href="/tags/software">software</a></div><div attr.class="markdown"><p>Version control/source control systems allow developers to track and control changes to code over time. These services often include the abilities:</p>
+<ul>
+<li>Make atomic revisions to code</li>
+<li>Branch/fork off of specific points</li>
+<li>Compare versions of code.</li>
+</ul>
+<p>They are useful in determining the who, what, when, and why code changes are made.</p>
+<h2 id="benefits">Benefits</h2>
+<p><strong>Document History</strong>: The version control system also contains the information of the author, date, and notes on each change. The complete history will help us:</p>
+<ul>
+<li>Go back to the previous versions to define the root cause of a bug.</li>
+<li>Go back to a stable version in case we need to revert an incident on Production.</li>
+</ul>
+<p><strong>Branching and Merging</strong>:</p>
+<ul>
+<li>Branching allows a team member to work on the same file concurrently. The changes are independent without affecting the contribution of the collaborators.</li>
+<li>Merging allows team members to merge other members’ independent works without conflicts.</li>
+</ul>
+<p><strong>Traceability</strong>: A version control system provides evidence of all revisions and changes over time.</p>
+<ul>
+<li>Traceability helps us to work effectively with legacy code.</li>
+<li>Traceability helps us to estimate future work with any accuracy.</li>
+</ul>
+<h2 id="types-of-version-control-system">Types of Version Control System</h2>
+<ul>
+<li>Local Version Control Systems</li>
+<li>Centralized Version Control Systems</li>
+<li>Distributed Version Control Systems</li>
+</ul>
+<p><strong>Local Version Control Systems</strong> maintain track of files in the local system. Every file is stored as a patch. Every patch set contains only the changes made to the file since its last version.</p>
+<p><strong>Centralized Version Control Systems</strong> tracked all the changes in the files under the centralized server. The centralized server includes all the information of versioned files and a list of clients that check out files from that central place.</p>
+<p>In <strong>Distributed Version Control Systems</strong>, the clients clone the repository including its full history. If any server dies, any of the client repositories can be copied onto the server which helps restore the server.</p>
+<p>Each clone can be considered as a full backup of all the data.</p>
+<h2 id="concepts-related-to-version-control-system">Concepts related to Version Control System</h2>
+<p><strong>Repository</strong> is the central defined place where all the team members work and store their code. It also maintains the history.</p>
+<p><strong>Trunk</strong> is where you keep your main line of development. It is the directory where all the developments take place. All the check-outs are committed by the team members.</p>
+<p><strong>Tags</strong> help create snapshots of the project. Creating tags will keep descriptive and memorable names to a specific version in the repository.</p>
+<p><strong>Branches</strong> are the copy of code derived from a certain point in the trunk. If the changes work according to plan, we will merge back the changes on a branch to the trunk.</p>
+<p><strong>Working copy:</strong> It is the snapshot of the repository where the team member is actively working on it. Each team member has their working copy.</p>
+<p><strong>Commit changes:</strong> Committing code is the process of storing changes from the working copy to the central server. Commit is an atomic operation. When successful commit changes are made, other team members can pull these changes to update their working copy.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.atlassian.com/git/tutorials/what-is-version-control">https://www.atlassian.com/git/tutorials/what-is-version-control</a></li>
+<li><a href="https://reqtest.com/requirements-blog/what-are-benefits-of-version-control/">https://reqtest.com/requirements-blog/what-are-benefits-of-version-control/</a></li>
+<li><a href="https://blog.eduonix.com/software-development/learn-three-types-version-control-systems/">https://blog.eduonix.com/software-development/learn-three-types-version-control-systems/</a></li>
+<li><a href="https://www.geeksforgeeks.org/version-control-systems/">https://www.geeksforgeeks.org/version-control-systems/</a></li>
+</ul>
+</div></div><div class="footer"><a href="https://ko-fi.com/huyphung" target="_blank" style="display: flex; align-items: center; justify-content: center;"><img src="https://i.imgur.com/PnPh5LY.png" style="width: 32px; height: 32px; margin-right: 8px;">buy me a coffee</a></div><link href="/styles.css" rel="stylesheet" type="text/css"><style>body {
+    padding:0px;
+    margin:0px;
+    background-color:#E7E6E1;
+    color:#1A374D;
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    font-size:2em;
+    line-height:1.6em;
+}
+
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size:1.2em;
+    line-height:1.6em;
+    }
+}
+
+a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+img {
+    max-width:750px;
+}
+
+@media only screen and (min-width: 1024px) {
+    img {
+        max-width:100%;
+    }
+}
+
+code {
+    font-family:JetBrains Mono, monospace, monospace;
+    color:#ed143d;
+    background-color:#f0f0f0;
+    padding:1px 2px;
+    line-height:1.4em;
+}
+
+@media only screen and (min-width: 1024px) {
+    code {
+        font-size:0.9em;
+    line-height:1.2em;
+    }
+}
+
+blockquote {
+    background-color:#f9f9f9;
+    border-left:10px solid #1A374D;
+    margin:1.5em 10px;
+    padding:0.5em 16px;
+}
+
+pre  code {
+    overflow-x:scroll !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:Libre Baskerville, Georgia, Cambria, Times New Roman, Times;
+    line-height:1.1em;
+    color:#1A374D;
+}
+
+h1 {
+    font-size:2.66667em;
+    margin-bottom:2.0202rem;
+}
+
+h2 {
+    font-size:2em;
+    margin-bottom:1.61616rem;
+}
+
+h3 {
+    font-size:1.33333em;
+    margin-bottom:1.21212rem;
+}
+
+h4 {
+    font-size:1.2em;
+    margin-bottom:0.80808rem;
+}
+
+h5, h6 {
+    font-size:1em;
+    margin-bottom:0.60606rem;
+}
+
+p {
+    margin:auto auto 1.5rem;
+}
+
+small {
+    font-size:65%;
+}
+
+.header-logo {
+    padding-top:6px;
+    text-align:center;
+    background-color:#FFCE45;
+    border-bottom:2px solid #1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header-logo {
+        text-align:left;
+    }
+}
+
+.navigation {
+    text-align:right;
+    border-bottom:2px solid #1A374D;
+    background-color:#FFCE45;
+    padding:10px;
+    margin-top:-20px;
+    margin-top:0px;
+    padding:30px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation {
+        margin-top:0px;
+    padding:0px;
+    }
+}
+
+.navigation  ul {
+    margin:0px;
+    padding:0px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation  ul {
+        line-height:100px;
+    }
+}
+
+.navigation  li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.navigation  a {
+    color:#1A374D;
+    font-weight:600;
+}
+
+.content {
+    max-width:100vw;
+    margin:4rem 0rem;
+}
+
+.content  p  a {
+    font-weight:600;
+    text-decoration:underline;
+}
+
+.content  li  a {
+    font-weight:600;
+    text-decoration:underline;
+    overflow-wrap:break-word;
+}
+
+.footer {
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    justify-content:center;
+    padding:12px;
+    border-top:2px solid #1A374D;
+    background-color:#FFCE45;
+    color:#1A374D;
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer {
+        line-height:80px;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .footer  .link {
+        display:inline-block;
+    margin-right:20px;
+    }
+}
+
+.footer  a {
+    color:#1A374D;
+    text-decoration:none;
+}
+
+.footer  svg {
+    padding-right:5px;
+    vertical-align:baseline;
+}
+
+.post-metadata {
+    margin-top:-0.5em;
+    margin-bottom:2em;
+    font-family:JetBrains Mono, monospace, monospace;
+}
+
+.post-metadata  a, .post-metadata  span {
+    display:inline-block;
+    margin-right:5px;
+}
+
+.post-metadata  a {
+    border:1px solid #1A374D;
+    border-radius:3px;
+    background-color:#F7F6E7;
+    color:#1A374D;
+    padding-left:5px;
+    padding-right:5px;
+}</style></body></html>

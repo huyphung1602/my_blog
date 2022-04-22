@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Mon, 18 Apr 2022 01:14:30 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Apr 2022 06:11:21 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -379,6 +379,25 @@ Diffuse mode
 Focused mode is what happens when you deeply concentrate on one thing, like doing math problems. The brain tries to understand, evaluate or memorize what you are doing.
 
 Diffuse mode is what happens when you are not concentrating on anything. The thought runs randomly when we are doing other things such as jogging, cycling, or doing something in the toilet. At this time, the brains find the connections and over all of ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: Version Control System]]></title>
+            <link>/2022-04-22-version-control-system</link>
+            <guid>/2022-04-22-version-control-system</guid>
+            <pubDate>Fri, 22 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Version control/source control systems allow developers to track and control changes to code over time. These services often include the abilities:
+
+Make atomic revisions to code
+Branch/fork off of specific points
+Compare versions of code.
+
+They are useful in determining the who, what, when, and why code changes are made.
+
+Benefits
+
+Document History: The version control system also contains the information of the author, date, and notes on each change. The complete history will help us:
+
+Go back...]]></description>
         </item>
     </channel>
 </rss>
