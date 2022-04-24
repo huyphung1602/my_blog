@@ -4,7 +4,7 @@
         <title>Huy&apos;s blog</title>
         <link></link>
         <description>Huy&apos;s posts</description>
-        <lastBuildDate>Fri, 22 Apr 2022 06:11:21 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 24 Apr 2022 06:38:04 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Elmstatic</generator>
         <language>en</language>
@@ -398,6 +398,19 @@ Benefits
 Document History: The version control system also contains the information of the author, date, and notes on each change. The complete history will help us:
 
 Go back...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Reading Note: The Unix philosophy]]></title>
+            <link>/2022-04-24-the-unix-philosophy</link>
+            <guid>/2022-04-24-the-unix-philosophy</guid>
+            <pubDate>Sun, 24 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Unix philosophy emphasizes building simple, short, clear, modular, and extensible code that can be easily maintained and repurposed by developers other than its creators. The Unix philosophy favors composability as opposed to monolithic design.
+
+Douglas McIlroy is one of the Unix developers. He wrote several famous command-line utilities: spell, diff, sort, join, graph, speak, and tr
+
+McIlroy summarized the best practices of software development for Unix in the following points:
+
+Write progr...]]></description>
         </item>
     </channel>
 </rss>
